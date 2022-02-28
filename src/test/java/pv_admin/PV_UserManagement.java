@@ -48,12 +48,6 @@ public class PV_UserManagement {
 		//System.setProperty("webdriver.gecko.driver", "D:\\Selenium\\GeckoDriver\\geckodriver.exe");
 		//driver=new FirefoxDriver();
 
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
-		context.setAttribute("WebDriver", driver);
-		Thread.sleep(2000);
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
 	}
 	
 	
@@ -61,6 +55,12 @@ public class PV_UserManagement {
 	@Test
 	public void Openurl(ITestContext context) throws InterruptedException 
 	{
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver();
+		context.setAttribute("WebDriver", driver);
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		
 		driver.get("https://qapoc.sgligis.com:10014");
 		Thread.sleep(2000);

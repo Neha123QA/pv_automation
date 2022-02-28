@@ -47,13 +47,14 @@
 </test>
  -->
  
-<!-- 
+  <!-- 
  <test name="PV_Registration">
     <classes>
     
      <class name="pv_admin.PV_Registration">
      
       <methods>
+    
         <include name="PV_Registration_1()"/>   
        <include name="PV_Registration_2()"/> 
        <include name="PV_Registration_3()"/>
@@ -65,6 +66,7 @@
        <include name="PV_Registration_8()"/>
        <include name="PV_Registration_9()"/>
        <include name="PV_Registration_10()"/>
+       
        <include name="PV_Registration_11()"/>
        
 	  </methods>   
@@ -237,29 +239,29 @@
       </test>
 -->
 
-  <!--
-<test name="PV_UserManagement"> 
+ 
+<test name="PV_LayerManagement"> 
       <classes>
-      <class name="pv_admin.PV_UserManagement">
+      <class name="pv_admin.PV_LayerManagement">
       <methods>
-      <include name="PV_UserManagement_01()"/>
-       <include name="PV_UserManagement_02()"/>
-
+      <include name="PV_LayerManagement_39()"/>
+       <include name="PV_LayerManagement_41()"/>
+       <include name="PV_LayerManagement_40()"/>
 	 </methods>
       </class>
       </classes>
       
       </test>
-  -->
  
-
+ 
+<!-- 
      <test name="PV_LandingPage"> 
       <classes>
       <class name="pv_admin.PV_LandingPage">
       <methods>
-      <!-- <include name="PV_HomePage_02()"/>-->
-      <!-- <include name="PV_HomePage_04()"/>-->
-      <!-- <include name="PV_HomePage_07()"/>-->
+       <include name="PV_HomePage_02()"/>
+  		<include name="PV_HomePage_04()"/>
+      <include name="PV_HomePage_07()"/>
       <include name="PV_HomePage_57()"/>
       <include name="PV_HomePage_58()"/>
 
@@ -267,7 +269,7 @@
       </class>
    </classes>
       </test>
-    
+   --> 
       
   <!-- Test -->
 </suite> <!-- Suite -->

@@ -441,7 +441,7 @@ WebDriver driver;
 	}
 	
 
-	
+	/*
 	@AfterMethod
 	public void AfterMethod() throws InterruptedException
 	{
@@ -449,6 +449,6 @@ WebDriver driver;
 		driver.close();
 		Thread.sleep(1000);	
 	}
-	
+	*/
 	
 }
