@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1" thread-count="1" parallel="tests">
+<listeners>
+		<listener class-name="Listener.TestListener" />	
+</listeners>
+
+<!-- 
+  <test name="PV_Login">
+    <classes>
+    
+     <class name="pv_admin.PV_Login">
+     
+      <methods>
+       <include name="PV_Login_01()"/>
+        <include name="PV_Login_02()"/>
+       <include name="PV_Login_04()"/>
+       <include name="PV_Login_05()"/>
+       <include name="PV_Login_06()"/>
+       <include name="PV_Login_07()"/>
+       <include name="PV_Login_08()"/>
+       <include name="PV_Login_09()"/>
+       <include name="PV_Login_10()"/>
+     
+      
+      </methods>   
+      </class>
+    </classes>
+    </test>
+-->
+
+<!-- 
+<test name="ChromeTest">
+<parameter name="browser" value="chrome" />
+<classes>
+<class name="pv_admin.PV_Login">
+</class>
+</classes>
+</test>
+
+<test name="FirefoxTest">
+<parameter name="browser" value="firefox" />
+<classes>
+<class name="pv_admin.PV_Login">
+</class>
+</classes>
+</test>
+ -->
+ 
+<!-- 
+ <test name="PV_Registration">
+    <classes>
+    
+     <class name="pv_admin.PV_Registration">
+     
+      <methods>
+        <include name="PV_Registration_1()"/>   
+       <include name="PV_Registration_2()"/> 
+       <include name="PV_Registration_3()"/>
+       <include name="PV_Registration_4()"/>
+       
+       <include name="PV_Registration_5()"/>
+       <include name="PV_Registration_6()"/>
+       <include name="PV_Registration_7()"/>
+       <include name="PV_Registration_8()"/>
+       <include name="PV_Registration_9()"/>
+       <include name="PV_Registration_10()"/>
+       <include name="PV_Registration_11()"/>
+       
+	  </methods>   
+      </class>
+    </classes>
+    </test>
+-->
+
+  <!-- 
+    <test name="PV_Settings"> 
+     <classes>
+      <class name="pv_admin.PV_Settings">
+      
+      <methods>
+      <include name="PV_Settings_01()"/>
+      <include name="PV_Settings_02()"/>
+
+      <include name="PV_Settings_03()"/>
+      <include name="PV_Settings_04()"/>
+      <include name="PV_Settings_08()"/>
+      <include name="PV_Settings_09()"/>
+      <include name="PV_Settings_10()"/>
+      <include name="PV_Settings_11()"/>
+      <include name="PV_Settings_12()"/>
+      <include name="PV_Settings_13()"/>
+      <include name="PV_Settings_14()"/>
+      <include name="PV_Settings_15()"/>
+      <include name="PV_Settings_16()"/>
+      <include name="PV_Settings_17()"/>
+      <include name="PV_Settings_18()"/>
+      <include name="PV_Settings_19()"/>
+      <include name="PV_Settings_20()"/>
+      <include name="PV_Settings_21()"/>
+      <include name="PV_Settings_22()"/>
+      <include name="PV_Settings_23()"/>
+      <include name="PV_Settings_24()"/>
+ 
+      </methods>
+      
+      </class>
+      </classes>
+  </test>
+-->
+
+<!-- 
+  <test name="PV_LayerManagement"> 
+      <classes>
+      <class name="pv_admin.PV_LayerManagement">
+      
+      <methods>
+      <include name="PV_LayerManagement_01()"/>
+      <include name="PV_LayerManagement_02()"/>
+      <include name="PV_LayerManagement_03()"/> 
+      <include name="PV_LayerManagement_04()"/>
+      <include name="PV_LayerManagement_06()"/>
+      <include name="PV_LayerManagement_07()"/>
+      <include name="PV_LayerManagement_08()"/>
+      <include name="PV_LayerManagement_09()"/>
+      <include name="PV_LayerManagement_10()"/>
+      <include name="PV_LayerManagement_11()"/>
+      <include name="PV_LayerManagement_12()"/>
+      <include name="PV_LayerManagement_13()"/>
+      <include name="PV_LayerManagement_14()"/>
+      <include name="PV_LayerManagement_15()"/>
+      <include name="PV_LayerManagement_16()"/>
+      <include name="PV_LayerManagement_17()"/>
+      <include name="PV_LayerManagement_18()"/>
+      <include name="PV_LayerManagement_19()"/>
+      <include name="PV_LayerManagement_20()"/>
+      <include name="PV_LayerManagement_21()"/>
+      <include name="PV_LayerManagement_22()"/>
+      <include name="PV_LayerManagement_23()"/>
+      <include name="PV_LayerManagement_24()"/>
+      <include name="PV_LayerManagement_25()"/>
+      <include name="PV_LayerManagement_26()"/>
+      <include name="PV_LayerManagement_27()"/>
+      <include name="PV_LayerManagement_28()"/>
+      <include name="PV_LayerManagement_29()"/>
+      <include name="PV_LayerManagement_30()"/>
+      <include name="PV_LayerManagement_31()"/>
+      <include name="PV_LayerManagement_32()"/> 
+      <include name="PV_LayerManagement_33()"/>
+      <include name="PV_LayerManagement_34()"/>
+      <include name="PV_LayerManagement_35()"/>   
+      <include name="PV_LayerManagement_36()"/>
+      <include name="PV_LayerManagement_37()"/>
+      <include name="PV_LayerManagement_38()"/>
+      <include name="PV_LayerManagement_39()"/>
+      <include name="PV_LayerManagement_42()"/>
+      <include name="PV_LayerManagement_43()"/>
+      <include name="PV_LayerManagement_44()"/>
+      <include name="PV_LayerManagement_45()"/>
+      <include name="PV_LayerManagement_46()"/>
+      <include name="PV_LayerManagement_47()"/>
+      <include name="PV_LayerManagement_48()"/>
+      <include name="PV_LayerManagement_51()"/>    
+      <include name="PV_LayerManagement_52()"/>
+      <include name="PV_LayerManagement_53()"/>
+      <include name="PV_LayerManagement_54()"/>
+      <include name="PV_LayerManagement_55()"/>
+      <include name="PV_LayerManagement_56()"/>
+      <include name="PV_LayerManagement_57()"/>
+      <include name="PV_LayerManagement_58()"/>
+      <include name="PV_LayerManagement_59()"/>
+      <include name="PV_LayerManagement_60()"/>
+      <include name="PV_LayerManagement_63()"/>
+      <include name="PV_LayerManagement_62()"/>
+      <include name="PV_LayerManagement_66()"/>
+      <include name="PV_LayerManagement_50()"/>
+      <include name="PV_LayerManagement_49()"/>
+      <include name="PV_LayerManagement_61()"/>
+      <include name="PV_LayerManagement_60()"/>
+      <include name="PV_LayerManagement_41()"/>
+      <include name="PV_LayerManagement_40()"/>
+   
+      <include name="PV_LayerManagement_68()"/>
+      <include name="PV_LayerManagement_69()"/>
+      <include name="PV_LayerManagement_70()"/>
+      <include name="PV_LayerManagement_71()"/>
+      <include name="PV_LayerManagement_72()"/>
+      <include name="PV_LayerManagement_73()"/>
+      <include name="PV_LayerManagement_74()"/>
+      <include name="PV_LayerManagement_75()"/>
+      <include name="PV_LayerManagement_76()"/>
+      <include name="PV_LayerManagement_77()"/>
+      <include name="PV_LayerManagement_78()"/>
+      <include name="PV_LayerManagement_79()"/>
+      <include name="PV_LayerManagement_80()"/>
+      <include name="PV_LayerManagement_81()"/>
+      <include name="PV_LayerManagement_82()"/>
+      <include name="PV_LayerManagement_83()"/>
+      <include name="PV_LayerManagement_84()"/>
+      <include name="PV_LayerManagement_85()"/>
+      <include name="PV_LayerManagement_86()"/>
+      <include name="PV_LayerManagement_87()"/>
+      <include name="PV_LayerManagement_88()"/>
+      <include name="PV_LayerManagement_89()"/>
+      <include name="PV_LayerManagement_90()"/>
+      <include name="PV_LayerManagement_91()"/>
+      <include name="PV_LayerManagement_92()"/>
+      <include name="PV_LayerManagement_93()"/>
+      <include name="PV_LayerManagement_94()"/>
+      <include name="PV_LayerManagement_95()"/>
+      <include name="PV_LayerManagement_96()"/>
+      <include name="PV_LayerManagement_97()"/>
+      <include name="PV_LayerManagement_98()"/>
+      <include name="PV_LayerManagement_99()"/>
+      <include name="PV_LayerManagement_100()"/>
+      <include name="PV_LayerManagement_101()"/>
+      <include name="PV_LayerManagement_102()"/>
+      <include name="PV_LayerManagement_103()"/>
+      <include name="PV_LayerManagement_104()"/>
+      <include name="PV_LayerManagement_105()"/>
+      <include name="PV_LayerManagement_106()"/>
+      <include name="PV_LayerManagement_109()"/>
+      <include name="PV_LayerManagement_110()"/>
+      <include name="PV_LayerManagement_111()"/>
+      <include name="PV_LayerManagement_112()"/>
+      <include name="PV_LayerManagement_113()"/>
+      <include name="PV_LayerManagement_114()"/>
+      <include name="PV_LayerManagement_115()"/>
+      <include name="PV_LayerManagement_116()"/>
+      <include name="PV_LayerManagement_117()"/>
+      <include name="PV_LayerManagement_108()"/>
+      <include name="PV_LayerManagement_107()"/>
+  
+      </methods>
+      </class>
+      </classes>
+      </test>
+-->
+
+  <!--
+<test name="PV_UserManagement"> 
+      <classes>
+      <class name="pv_admin.PV_UserManagement">
+      <methods>
+      <include name="PV_UserManagement_01()"/>
+       <include name="PV_UserManagement_02()"/>
+
+	 </methods>
+      </class>
+      </classes>
+      
+      </test>
+  -->
+ 
+
+     <test name="PV_LandingPage"> 
+      <classes>
+      <class name="pv_admin.PV_LandingPage">
+      <methods>
+      <!-- <include name="PV_HomePage_02()"/>-->
+      <!-- <include name="PV_HomePage_04()"/>-->
+      <!-- <include name="PV_HomePage_07()"/>-->
+      <include name="PV_HomePage_57()"/>
+      <include name="PV_HomePage_58()"/>
+
+	 </methods>
+      </class>
+   </classes>
+      </test>
+    
+      
+  <!-- Test -->
+</suite> <!-- Suite -->
