@@ -25,7 +25,7 @@ public class Registration_repository {
 	static final String val_registration_success="";
 	static final String user_profile="";
 	static final String btn_gotohomepage="";
-	static final String lnk_Login="";
+	static final String lnk_Login="//a[text()='Login']";
 	static final String btn_idproof_back="";
 	static final String validation_username="";
 	static final String validation_email="";
