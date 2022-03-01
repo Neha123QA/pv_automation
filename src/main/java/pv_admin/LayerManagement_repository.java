@@ -38,7 +38,8 @@ public class LayerManagement_repository {
 	static final String btn_actions="//button[text()='Actions']";
 	static final String lnk_edit="//li/a[text()='Edit']";
 	static final String lnk_layerfield="//li/a[text()='Layer Field']";
-	static final String lnk_delete="//li/a[text()='Discard']";
+	static final String lnk_discard="//li/a[text()='Discard']";
+	static final String toast_msg="//div[@class='toast-message']";
 	
 	static final String col_lbl_actions="//th[text()='Actions']";
 	static final String col_lbl_layfielddispname="//th[text()='Layer Field Display Name']";
@@ -52,7 +53,23 @@ public class LayerManagement_repository {
 	static final String txtbox_infotooldispindex="//input[@id='LayerFields_InfoToolDisplayIndex']";
 	static final String txtbox_reportdispindex="//input[@id='LayerFields_ReportDisplayIndex']";
 	static final String txtbox_dispname="//input[@id='LayerFields_Locales_en-IN__DisplayName']";
-	static final String
-	static final String
+	static final String chbox_infotooldispindex="//input[@id='LayerFields_InfoToolVisibility']";
+	static final String chbox_reportdispindext="//input[@id='LayerFields_ReportVisibility']";
 	
+	static final String verify_first="//div[@class='dataTables_scrollBody']/table/tbody/tr/td[2]";
+	
+	static final String txtbox_title_lay_win="//input[@id='Layers_Locales_en-IN__Title']";
+	static final String txtbox_opacity_lay_win="//input[@id='Layers_Opacity']";
+	static final String txtbox_boundX1_lay_win="//input[@id='Layers_BoundX1']";
+	static final String txtbox_boundX2_lay_win="//input[@id='Layers_BoundX2']";
+	static final String txtbox_boundY1_lay_win="//input[@id='Layers_BoundY1']";
+	static final String txtbox_boundY2_lay_win="//input[@id='Layers_BoundY2']";
+	static final String chbox_active_lay_win="//input[@id='Layers_IsActive']";
+	static final String chbox_isvisible_lay_win="//input[@id='Layers_IsVisible']";
+	static final String chbox_isqueryable_lay_win="//input[@id='queryableLayer']";
+	static final String chbox_isbaselay_lay_win="//input[@id='baseLayer']";
+	static final String val_opacity="//span[@id='Layers_Opacity-error']";
+	
+	static final String col_lbl_laytitle="//th[text()='Layer Title']";
+	static final String col_lbl_layname="//th[text()='Layer Name']";
 }

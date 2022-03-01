@@ -4,18 +4,16 @@
   <listeners>
     <listener class-name="Listener.TestListener"/>
   </listeners>
-  <test thread-count="1" parallel="tests" name="PV_LandingPage(failed)">
+  <test thread-count="1" parallel="tests" name="PV_LayerManagement(failed)">
     <classes>
-      <class name="pv_admin.PV_LandingPage">
+      <class name="pv_admin.PV_LayerManagement">
         <methods>
+          <include name="PV_LayerManagement_39"/>
           <include name="Aftermethod"/>
-          <include name="Openurl"/>
-          <include name="schreenshot"/>
-          <include name="PV_HomePage_53"/>
-          <include name="PV_HomePage_54"/>
           <include name="setDriver"/>
+          <include name="Openurl"/>
         </methods>
-      </class> <!-- pv_admin.PV_LandingPage -->
+      </class> <!-- pv_admin.PV_LayerManagement -->
     </classes>
-  </test> <!-- PV_LandingPage(failed) -->
+  </test> <!-- PV_LayerManagement(failed) -->
 </suite> <!-- Failed suite [Suite] -->

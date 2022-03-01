@@ -244,9 +244,39 @@
       <classes>
       <class name="pv_admin.PV_LayerManagement">
       <methods>
-      <include name="PV_LayerManagement_39()"/>
-       <include name="PV_LayerManagement_41()"/>
-       <include name="PV_LayerManagement_40()"/>
+      	<!-- 
+      	<include name="PV_LayerManagement_38()"/>
+     	<include name="PV_LayerManagement_39()"/>
+     	
+     	<include name="PV_LayerManagement_42()"/>
+     	-->
+     	<include name="PV_LayerManagement_43()"/>
+     	<!-- 
+     	<include name="PV_LayerManagement_44()"/>
+     	<include name="PV_LayerManagement_45()"/>
+     	<include name="PV_LayerManagement_46()"/>
+     	<include name="PV_LayerManagement_47()"/>
+     	<include name="PV_LayerManagement_48()"/>
+     	<include name="PV_LayerManagement_50()"/>
+     	<include name="PV_LayerManagement_49()"/>
+     	<include name="PV_LayerManagement_51()"/>
+     	<include name="PV_LayerManagement_54()"/>
+     	<include name="PV_LayerManagement_55()"/>
+     	<include name="PV_LayerManagement_56()"/>
+     	<include name="PV_LayerManagement_57()"/>
+     	<include name="PV_LayerManagement_58()"/>
+     	<include name="PV_LayerManagement_59()"/>
+     	<include name="PV_LayerManagement_60()"/>
+     	<include name="PV_LayerManagement_63()"/>
+     	<include name="PV_LayerManagement_62()"/>
+     	<include name="PV_LayerManagement_61()"/>
+     	<include name="PV_LayerManagement_66()"/>
+     	<include name="PV_LayerManagement_67()"/>
+     	<include name="PV_LayerManagement_41()"/>
+     	<include name="PV_LayerManagement_40()"/>
+     	-->
+     	
+     
 	 </methods>
       </class>
       </classes>
