@@ -2,6 +2,7 @@ package pv_admin;
 
 public class Login_repository {
 
+	static final String url="http://pvqaadmin.sgligis.com";
 	static final String btn_Login="//a[@class='btn btn-primary']";
 	static final String lbl_Username="//label[@for='LoginInput_UserNameOrEmailAddress']";
 	static final String lbl_Password="//label[@for='LoginInput_Password']";

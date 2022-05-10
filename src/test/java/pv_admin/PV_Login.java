@@ -48,7 +48,7 @@ public class PV_Login {
 	@BeforeMethod
 	public void Openurl() throws InterruptedException 
 	{
-		driver.get(admin_page_repository.url_admin);
+		driver.get(Login_repository.url);
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		Thread.sleep(1000);

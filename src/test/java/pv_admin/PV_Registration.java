@@ -42,7 +42,7 @@ WebDriver driver;
 		Thread.sleep(2000);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.get("https://qapoc.sgligis.com:10014/");
+		driver.get(Login_repository.url);
 		Thread.sleep(2000);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);

@@ -32,6 +32,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.model.Log;
 
 import Listener.ExtentTestManager;
 import Listener.Screenshot_extra;
@@ -55,6 +56,9 @@ public class PV_UserManagement {
 	@Test
 	public void Openurl(ITestContext context) throws InterruptedException 
 	{
+		//System.setProperty("webdriver.gecko.driver", "D:\\Selenium\\GeckoDriver\\geckodriver.exe");
+		//driver=new FirefoxDriver();
+		
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
 		context.setAttribute("WebDriver", driver);
@@ -62,7 +66,7 @@ public class PV_UserManagement {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		
-		driver.get("https://qapoc.sgligis.com:10014");
+		driver.get(Login_repository.url);
 		Thread.sleep(2000);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
@@ -94,7 +98,7 @@ public class PV_UserManagement {
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should get \"User Management\" in expanded mode ."));
 		ll.Screenshotnew(driver,i,method.getName()+"_01");
 		driver.findElement(By.xpath(UserManagement_repository.opt_UserManagement)).click();
-		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"Layer Management\" menu from left panel.");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"User Management\" menu from left panel.");
 		String a2=driver.findElement(By.xpath(UserManagement_repository.style_exp_coll)).getAttribute("style");
 		Thread.sleep(1000);
 		Assert.assertNotEquals(a1, a2);
@@ -393,10 +397,16 @@ public class PV_UserManagement {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(UserManagement_repository.btn_close)).click();
 		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(2000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on \"X\"(close) button of \"New User\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.btn_newuser)).isDisplayed(), true);
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"New User\" window."));
 	}
+	
+	
 	
 	@Test(priority=8,description="To verify that user is able to perform \"Cancel\" functionality of \"New User\" window.")
 	public void PV_UserManagement_09() throws InterruptedException
@@ -427,6 +437,10 @@ public class PV_UserManagement {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(UserManagement_repository.btn_cancel)).click();
 		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(2000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on \"Cancel\" button from \"User information\" or \"Roles\" or \"Police Personnel\"(For Department User) section  of \"New user\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.btn_newuser)).isDisplayed(), true);
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to click on \"Cancel\" button  and \"New User\" window should close."));
@@ -1493,7 +1507,7 @@ public class PV_UserManagement {
 				+ "\"Claims\",</br>"
 				+ "\"Lock\" , </br>"
 				+ "\"Permissions\",</br>"
-				+ "\"Set Password\" ,"));
+				+ "\"Set Password\" ,</br> \"Delete\"."));
 	}
 	
 	@Test(priority=30,description="To verify that user is able to save user as Police Personnel by clicking on \"Save As Police Personnel\" option from \"Actions\" dropdown.")
@@ -1775,7 +1789,7 @@ public class PV_UserManagement {
 	}
 	
 	@Test(priority=38,description="To verify that user gets validation message if save user as \"Citizen\" which is already saved as citizen user.")
-	public void PV_UserMangement_39() throws InterruptedException
+	public void PV_UserManagement_39() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1955,6 +1969,11 @@ public class PV_UserManagement {
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "Edit Application User");
 		driver.findElement(By.xpath(UserManagement_repository.btn_close)).click();
 		Thread.sleep(2000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"X\"(close) button of \"Edit User\" window.");
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"Edit User\" window."));
 	}
@@ -1983,6 +2002,11 @@ public class PV_UserManagement {
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "Edit Application User");
 		driver.findElement(By.xpath(UserManagement_repository.btn_cancel)).click();
 		Thread.sleep(2000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Cancel\" button of \"Edit User\" window.");
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to click on \"Cancel\" button of \"Edit User\" window and \"Edit User\" window should close."));
 	}
@@ -4529,6 +4553,35 @@ public class PV_UserManagement {
 				+ "2. \"Edit Police Personnel Information\" window shouldn't close."));
 	}
 	
+	@Test(priority=129,description="To verify that user is able to \"Cancel\" validation message of delete record of user's Police Personnel Information. ")
+	public void PV_UserManagement_131() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(UserManagement_repository.opt_UserManagement)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(UserManagement_repository.menu_item_PolicePersonnel)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"User Management\"-> \"Police Personnel\" menu from left pane.");
+		driver.findElement(By.xpath(UserManagement_repository.col_lbl_username_policepersonnel)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(UserManagement_repository.btn_actions_first)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(UserManagement_repository.lnk_discard_first)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> :  Click on \"Actions\"-> \"Discard\" option from \"Actions\" dropdown of particular role from list.");
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You want to delete Police Personnel Information?", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_cancel)).click();
+		Thread.sleep(1000);	
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Yes\" button of validation message popup.");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to click on \"Cancel\" button of validation message popup and validation message popup should close."));
+	}
+	
 	@Test(priority=130,description="To verify that user is able to delete particular Police Personnel user from \"Police Personnel\" page by clicking on \"Delete\" option from \"Actions\" dropdown.")
 	public void PV_UserManagement_130() throws InterruptedException
 	{
@@ -4559,34 +4612,7 @@ public class PV_UserManagement {
 				+ "2. Selected Police Personnel user should be delete."));
 	}
 	
-	@Test(priority=129,description="To verify that user is able to \"Cancel\" validation message of delete record of user's Police Personnel Information. ")
-	public void PV_UserManagement_131() throws InterruptedException
-	{
-		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
-		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
-		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
-		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
-		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
-		driver.findElement(By.xpath(UserManagement_repository.opt_UserManagement)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(UserManagement_repository.menu_item_PolicePersonnel)).click();
-		Thread.sleep(1000);
-		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"User Management\"-> \"Police Personnel\" menu from left pane.");
-		driver.findElement(By.xpath(UserManagement_repository.col_lbl_username_policepersonnel)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(UserManagement_repository.btn_actions_first)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(UserManagement_repository.lnk_discard_first)).click();
-		Thread.sleep(1000);
-		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> :  Click on \"Actions\"-> \"Discard\" option from \"Actions\" dropdown of particular role from list.");
-		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
-		Assert.assertEquals("You want to delete Police Personnel Information?", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
-        Thread.sleep(1000);	
-		driver.findElement(By.xpath(UserManagement_repository.validation_btn_cancel)).click();
-		Thread.sleep(1000);	
-		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Yes\" button of validation message popup.");
-		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to click on \"Cancel\" button of validation message popup and validation message popup should close."));
-	}
+	
 	
 	@Test(priority=131,description="To verify that user is able to get \"Organization Units\" page.")
 	public void PV_UserManagement_132() throws InterruptedException
@@ -5262,6 +5288,11 @@ public class PV_UserManagement {
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "Select users");
 		driver.findElement(By.xpath(UserManagement_repository.btn_close)).click();
 		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on close icon (\"X\") of \"Select users\" window.");
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"Select users\" window."));
 	}
@@ -5293,6 +5324,11 @@ public class PV_UserManagement {
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Add member\" functionality from dropdown list of particular organization unit.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "Select users");
 		driver.findElement(By.xpath(UserManagement_repository.btn_cancel1)).click();
+		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
 		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on \"Cancel\" button of \"Select users\" window.");
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to click on \"Cancel\" button of \"Select users\" window and \"Select users\" window should close."));
@@ -5815,6 +5851,108 @@ public class PV_UserManagement {
 				+ "2. Member should get deleted from \"Members\" section."));
 	}
 	
+	@Test(priority=171, description="To verify that user is able to perform pagination functionality from \"Members\" section.")
+	public void PV_UserManagement_172(Method method) throws InterruptedException
+	{
+		
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		
+		driver.findElement(By.xpath(UserManagement_repository.opt_UserManagement)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(UserManagement_repository.menu_item_orgunits)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"User Management\"-> \"Organization Units\" menu from left pane.");
+	
+		driver.findElement(By.xpath(UserManagement_repository.edited_orgunit)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on any organization unit from \"Organization tree\" section.");
+		driver.findElement(By.xpath(UserManagement_repository.tab_members_orgunits)).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath(UserManagement_repository.btn_addmember)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(UserManagement_repository.dd_entries)).sendKeys("25");
+		Thread.sleep(1000);
+		List<WebElement> el = driver.findElements(By.xpath(UserManagement_repository.chbox_member_window));
+		System.out.println(el.size());
+		for(int i=0 ; i<16 ; i++)
+		{
+			el.get(i).click();
+		}
+		Thread.sleep(1000);
+		WebElement e1=driver.findElement(By.xpath(UserManagement_repository.btn_save1));
+		Coordinates co1=((Locatable)e1).getCoordinates();
+		co1.onPage();
+		co1.inViewPort();
+		Thread.sleep(5000);
+		
+		driver.findElement(By.xpath(UserManagement_repository.btn_save1)).click();
+		Thread.sleep(3000);
+		WebElement e2=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries));
+		Coordinates co2=((Locatable)e2).getCoordinates();
+		co2.onPage();
+		co2.inViewPort();
+		Thread.sleep(4000);
+		String s1=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries)).getText();
+		
+		driver.findElement(By.xpath(UserManagement_repository.btn_next)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Next\" button of \"Members\" section.");
+		String s2=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries)).getText();
+		Assert.assertNotEquals(s1, s2);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_01</b> : User should get next records in \"Members\" section."));
+		ll.Screenshotnew(driver,i,method.getName()+"_01");
+		driver.findElement(By.xpath(UserManagement_repository.btn_previous)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on \"Previous\" button of \"Members\" section.");
+		String s3=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries)).getText();
+		Assert.assertNotEquals(s3, s2);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_02</b> : User should get previous records in \"Members\" section."));
+		ll.Screenshotnew(driver,i,method.getName()+"_02");
+		driver.findElement(By.xpath(UserManagement_repository.lnk_pageno_2)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on any particular page No. from \"Members\" section.");
+		String s4=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries)).getText();
+		Assert.assertNotEquals(s1, s4);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_03</b> : User should redirect to selected page No. in \"Members\" section."));
+	}
+	
+	@Test(priority=172,description="To verify that user is able to change number of records entries from \"Members\" section.")
+	public void PV_UserManagement_173() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		
+		driver.findElement(By.xpath(UserManagement_repository.opt_UserManagement)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(UserManagement_repository.menu_item_orgunits)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"User Management\"-> \"Organization Units\" menu from left pane.");
+	
+		driver.findElement(By.xpath(UserManagement_repository.edited_orgunit)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on any organization unit from \"Organization tree\" section.");
+		
+		String s1=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries)).getText();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(UserManagement_repository.dd_entries)).sendKeys("25");
+		Thread.sleep(3000);
+		WebElement e2=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries));
+		Coordinates co2=((Locatable)e2).getCoordinates();
+		co2.onPage();
+		co2.inViewPort();
+		Thread.sleep(4000);
+		String s2=driver.findElement(By.xpath(UserManagement_repository.text_showing_entries)).getText();
+		Assert.assertNotEquals(s1, s2);
+	}
+	
 	@Test(priority=173,description="To verify that user is able to perform sorting functionality for \"User name\" ,\"Email address\" columns of \"Member\" section .")
 	public void PV_UserManagement_174(Method method) throws InterruptedException
 	{
@@ -6270,6 +6408,11 @@ public class PV_UserManagement {
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on \"New Office\" button.");
 		driver.findElement(By.xpath(UserManagement_repository.btn_close)).click();
 		Thread.sleep(2000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on close(\"X\") button of \"New Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"New Office\" window."));
@@ -6303,12 +6446,17 @@ public class PV_UserManagement {
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on \"New Office\" button.");
 		driver.findElement(By.xpath(UserManagement_repository.btn_cancel)).click();
 		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on close(\"X\") button of \"New Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to click on \"Cancel\" button of \"New Office\" window and \"New Office\" window should close."));
 	}
 	
-	@Test(priority=186,description="")
+	@Test(priority=186,description="To verify that user gets validation message when perform \"Save\" functionality of \"New Office\" window without entering mandatory fields detail. ")
 	public void PV_UserManagement_187() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
@@ -6721,6 +6869,11 @@ public class PV_UserManagement {
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on \"Actions\"-> \"Edit\" option from Actions dropdown of any particular office.");
 		driver.findElement(By.xpath(UserManagement_repository.btn_close)).click();
 		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on close(\"X\") button of \"Edit Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"Edit Office\" window."));
@@ -6755,6 +6908,11 @@ public class PV_UserManagement {
 		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on \"Actions\"-> \"Edit\" option from Actions dropdown of any particular office.");
 		driver.findElement(By.xpath(UserManagement_repository.btn_cancel)).click();
+		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
 		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on \"Cancel\" button of \"Edit Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
@@ -7268,6 +7426,11 @@ public class PV_UserManagement {
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "New Office");
 		driver.findElement(By.xpath(UserManagement_repository.btn_close)).click();
 		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on close(\"X\") button of \"New Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"New Office\" window."));
@@ -7291,6 +7454,11 @@ public class PV_UserManagement {
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Office\" button from \"Office\" page.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "New Office");
 		driver.findElement(By.xpath(UserManagement_repository.btn_cancel)).click();
+		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
 		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Cancel\" button of \"New Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
@@ -7686,6 +7854,11 @@ public class PV_UserManagement {
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "Edit Office");
 		driver.findElement(By.xpath(UserManagement_repository.btn_close)).click();
 		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on close(\"X\") button of \"Edit Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"Edit Office\" window."));
@@ -7713,6 +7886,11 @@ public class PV_UserManagement {
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"Actions\"-> \"Edit\" option from Actions dropdown of any particular office.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).getText(), "Edit Office");
 		driver.findElement(By.xpath(UserManagement_repository.btn_cancel)).click();
+		Thread.sleep(1000);
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
 		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Cancel\" button of \"Edit Office\" window.");
 		Assert.assertEquals(driver.findElement(By.xpath(UserManagement_repository.title_window)).isDisplayed(), false);
@@ -8237,6 +8415,8 @@ public class PV_UserManagement {
 				+ "2. User should get validation message like \"Successfully deleted\".</br>"
 				+ "3. Selected organization unit should get deleted from \"Organization tree\" section of \"Organization Units\" page."));
 	}
+	
+	
 	
 	@AfterMethod
 	public void Aftermethod() throws InterruptedException

@@ -32,6 +32,7 @@ public class UserManagement_repository {
 	static final String dd_entries="(//div[@class='dataTables_length']/label/select)[1]";
 	static final String raw_datatable="//div[@class='dataTables_scrollBody']/table/tbody/tr";
 	
+	
 	//Application Users
 	static final String btn_newuser="//button[@id='NewUserButton']";
 	
@@ -235,6 +236,8 @@ public class UserManagement_repository {
 	static final String dd_entries_rolsec="(//div[@class='dataTables_length']/label/select)[2]";
 	static final String btn_icon_delete_rolesec="//table[@id='DataTables_Table_1']//button[@title='Delete']";
 	static final String text_muted="//*[contains(text(),'Departmental User')]/span";
+	static final String chbox_member_window="//table[@id='OrgPolicePersonnelTable']/tbody/tr";
+	
 	
 	//Office
 	static final String btn_newoffice="//button/span[contains(text(),'New Office')]";

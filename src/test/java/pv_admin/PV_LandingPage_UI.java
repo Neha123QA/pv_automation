@@ -44,7 +44,7 @@ WebDriver driver;
 	
 	public void Openurl() throws InterruptedException 
 	{
-		driver.get("http://192.168.1.204:10013/");
+		driver.get(Login_repository.url);
 		  Thread.sleep(2000);
 		  driver.manage().window().maximize();
 		  Thread.sleep(5000);

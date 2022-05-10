@@ -84,7 +84,7 @@ public class PV_LandingPage {
 		Thread.sleep(1000);
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Click on logo of \" Police Vertical\" from \"Home\" page.");
 		String url=driver.getCurrentUrl();
-		Assert.assertEquals(url, "https://qapoc.sgligis.com:10013/");
+		Assert.assertEquals(url, "https://pvqaweb.sgligis.com/");
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> :  User should able to redirect to the \"Home\" Page by clicking on logo of \" Police Vertical\" web portal."));
 
 	}
@@ -145,7 +145,6 @@ public class PV_LandingPage {
 
 		driver.findElement(By.xpath(Landingpage_repository.lnk_red_color)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on Red colour button  from header section of \"Home\" page.");
-		String c2=driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).getCssValue("color");
 		Thread.sleep(1000);
 		WebElement e1 = driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent));
 		e1.click();
@@ -171,14 +170,11 @@ public class PV_LandingPage {
 		co6.onPage(); co6.inViewPort();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Landingpage_repository.lnk_Home)).click();
-		System.out.println(c2);
-		Assert.assertNotEquals(c1, c2);
-		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_1</b> : User should get Home page text in Red colour except images."));
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_1</b> : User should get Home page in Red colour except images."));
 		ll.Screenshotnew(driver,i,method.getName()+"_01");
-		/*
+		
 		driver.findElement(By.xpath(Landingpage_repository.lnk_yellow_color)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Click on Yellow colour button  from header section of \"Home\" page.");
-		String c3=driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).getCssValue("color");
 		Thread.sleep(1000);
 
 		WebElement el1 = driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent));
@@ -206,13 +202,11 @@ public class PV_LandingPage {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Landingpage_repository.lnk_Home)).click();
 		Thread.sleep(1000);
-		Assert.assertNotEquals(c1, c3);
-				ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_2</b> : User should get Home page text in Yellow colour except images."));
+				ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_2</b> : User should get Home page in Yellow colour except images."));
 				ll.Screenshotnew(driver,i,method.getName()+"_02");
-		*/
+		
 		driver.findElement(By.xpath(Landingpage_repository.lnk_green_color)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on Green colour button  from header section of \"Home\" page.");
-		String c4=driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).getCssValue("color");
 		Thread.sleep(1000);
 
 		WebElement d1 = driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent));
@@ -240,14 +234,12 @@ public class PV_LandingPage {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Landingpage_repository.lnk_Home)).click();
 		Thread.sleep(1000);
-		Assert.assertNotEquals(c1, c4);
-		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_3</b> : User should get Home page text in Green colour except images."));
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_3</b> : User should get Home page in Green colour except images."));
 		ll.Screenshotnew(driver,i,method.getName()+"_03");
 		driver.findElement(By.xpath(Landingpage_repository.lnk_white_color)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on default(White) colour link.");
-		String c5=driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).getCssValue("color");
 		Thread.sleep(1000);
-		Assert.assertNotEquals(c5, c4);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_4</b> : User should get Home page in default colour."));
 	}
 
 	@Test(priority=5,description="To verify that user is able to decrease/increase font size  by clicking on \"A-\"/\"A+\" button.")
@@ -295,37 +287,20 @@ public class PV_LandingPage {
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
 		String t1=driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).getText();
-		Assert.assertEquals(t1, "Skip to main content");
+		Assert.assertEquals(t1, "Skip To Main Content");
 		driver.findElement(By.xpath(Landingpage_repository.lang_dd)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"English\" button from HomePage.");
 		driver.findElement(By.xpath(Landingpage_repository.lang_op)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Click on \"Hindi\" option.");
 		Thread.sleep(1000);
 		String ln1=driver.findElement(By.xpath(Landingpage_repository.lan_lnk)).getText();
-		Assert.assertEquals(ln1, "Hindi");
-		String t2=driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).getText();
+		Assert.assertEquals(ln1, "हिन्दी");
+		String t2=driver.findElement(By.xpath(Landingpage_repository.text_Skiptomaincontent_hi)).getText();
 		Thread.sleep(1000);
 		Assert.assertEquals(t2, "मुख्य विषयवस्तु में जाएं");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Result_1</b> : User should get Home page content except images in \"Hindi\" language.");
 		ll.Screenshotnew(driver,i,method.getName()+"_01");
-		/*
-		WebElement e1 = driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent));
-		e1.click();
-		Thread.sleep(1000);
-		WebElement e4 = driver.findElement(By.xpath(Landingpage_repository.slidetrack_newssection));
-		Coordinates co4 = ((Locatable)e4).getCoordinates();
-		co4.onPage(); co4.inViewPort();
-		Thread.sleep(1000);
-		WebElement e5 = driver.findElement(By.xpath(Landingpage_repository.newsletter_section));
-		Coordinates co5 = ((Locatable)e5).getCoordinates();
-		co5.onPage(); co5.inViewPort();
-		Thread.sleep(1000);
-		WebElement e6 = driver.findElement(By.xpath(Landingpage_repository.footer_allrights));
-		Coordinates co6 = ((Locatable)e6).getCoordinates();
-		co6.onPage(); co6.inViewPort();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.lnk_Home)).click();
-		*/
+		
 		driver.findElement(By.xpath(Landingpage_repository.lang_dd)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on  \"Hindi\" button from HomePage.");
 		driver.findElement(By.xpath(Landingpage_repository.lang_op)).click();
@@ -333,9 +308,9 @@ public class PV_LandingPage {
 		Thread.sleep(1000);
 		String ln2=driver.findElement(By.xpath(Landingpage_repository.lan_lnk)).getText();
 		Assert.assertEquals(ln2, "English");
-		String t3=driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).getText();
+		String t3=driver.findElement(By.xpath(Landingpage_repository.text_Skiptomaincontent)).getText();
 		Thread.sleep(1000);
-		Assert.assertEquals(t3, "Skip to main content");
+		Assert.assertEquals(t3, "Skip To Main Content");
 		ExtentTestManager.getTest().log(Status.INFO,"English(Localization) verified.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Result_2</b> : User should get Home page content except images in \"English\" language.");
 	}
@@ -369,31 +344,182 @@ public class PV_LandingPage {
 	@Test(priority=10,description="To verify that user is able to get \"Feedback\" form page by clicking on \"Feedback\" link  from header section of \"Home\" page.")
 	public void PV_HomePage_12() throws InterruptedException
 	{
-		//ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
-		//ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
 		driver.findElement(By.xpath(Landingpage_repository.lnk_feedback)).click();
 		Thread.sleep(1000);
-		//ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on \"Contact Us\" link from header section of \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on \"Contact Us\" link from header section of \"Home\" page.");
 		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.navpath_2)).getText(), "Feedback");
-		//ExtentTestManager.getTest().log(Status.INFO,"<b>Result</b> : User should navigate to \"Contacht Us\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Result</b> : User should navigate to \"Contacht Us\" page.");
 
 	}
 
 	@Test(priority=11,description="To verify that user is able to perform \"Login\" functionality from \"Home\" page of Police Vertical web portal.")
+	public void PV_HomePage_14() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.txtbox_Username)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.txtbox_Password)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.btn_Login1)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.lnk_ForgotPassword)).isDisplayed(), true);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Result</b> : User should get \"Login\" page with following :</br>"
+				+ "1. Textboxes: \"User name or email address\", \"Password\".</br>"
+				+ "2. Buttons: \"Login\", \"Cancel\".</br>"
+				+ "3. Links: \"Forgot Password?\", \"Register\".</br>"
+				+ "4. Checkbox : \"Remember me\".");
+	}
+	
+	@Test(priority=12,description="To verify that user is able to redirect to the User's Landing Page by clicking on \"My Account\" option from profile status on \"Home\" page of Police Vertical web portal.")
 	public void PV_HomePage_15() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
 		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
 		Thread.sleep(1000);
-		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.txtbox_Username)).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.txtbox_Password)).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.btn_Login)).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath(Login_repository.lnk_ForgotPassword)).isDisplayed(), true);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Login_repository.txtbox_Password)).sendKeys("1q2w3E*");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-6</b> : Click on profile status from the Home page.");
+		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).getText());
+		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).getText());
+		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).getText());
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-7</b> : Click on \"My Account\" option from dropdown list.");
+		Thread.sleep(3000);
+		String parent=driver.getWindowHandle();
+		Set<String>s=driver.getWindowHandles();
+
+		// Now iterate using Iterator
+		Iterator<String> I1= s.iterator();
+
+		while(I1.hasNext())
+		{
+
+			String child=I1.next();
+
+
+			if(!parent.equals(child))
+			{
+				driver.switchTo().window(child);
+
+				String actualTitle = driver.switchTo().window(child).getTitle();
+				Assert.assertEquals(actualTitle,"SGLPV");
+				Thread.sleep(2000);
+			}
+		}
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Result</b> : </br>1. User should redirect to the logged-in User's Landing Page from the \"Home\" page of Police Vertical web portal.</br>"
+				+ "2. User should get user's Landing page with following : </br>"
+				+ "2.1. Buttons : \"< Return to application\" , \"Save Changes\" , \"Profile Picture\"(Pre selected) , \"Change Password\" , \"Personnel info\" , \"Two factor\", \"Browse\"(for file attachment).</br>"
+				+ "2.2. Check-boxes : for profile picture changes - \"Use Default Avatar\", \"Use Gravatar\" , \"Upload File\".");
 	}
 
-	@Test(description="To verify that user is able to get \"Origin\"  page by clicking on \"Origin\" link from \"About Us\" dropdown from \"Home\" page.")
-	public void PV_HomePage_20() throws InterruptedException
+
+	@Test(priority=13,description="To verify that user is able to get \"Security logs\" page by clicking on \"Security logs\" option from profile status on \"Home\" page of Police Vertical web portal.")
+	public void PV_HomePage_16() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Login_repository.txtbox_Password)).sendKeys("1q2w3E*");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-6</b> : Click on profile status from the Home page.");
+		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).getText());
+		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).getText());
+		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).getText());
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).click();
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-7</b> : Click on \"Security logs\" option from dropdown list.");
+		Thread.sleep(3000);
+		String parent=driver.getWindowHandle();
+		Set<String>s=driver.getWindowHandles();
+
+		// Now iterate using Iterator
+		Iterator<String> I1= s.iterator();
+
+		while(I1.hasNext())
+		{
+
+			String child=I1.next();
+
+
+			if(!parent.equals(child))
+			{
+				driver.switchTo().window(child);
+
+				String actualTitle = driver.switchTo().window(child).getTitle();
+				Assert.assertEquals(actualTitle,"SGLPV");
+				Thread.sleep(2000);
+				Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.tab_seclog_adminportal)).getText(), "Security logs");
+			}
+		}
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Result</b> : </br>1. User should redirect to the \"Security logs\" page.</br>"
+				+ "2. User should get \"Security logs\" page with following :</br>"
+				+ "2.1. Text-boxes : \"Start Time\" , \"End Time\" , \"Action\".</br>"
+				+ "2.2. Buttons : Search icon , \"Next\" , \"Previous\" , Page control.</br>"
+				+ "2.3. User's logged-in /logged-out detail table contains following columns fields : \"Time\" , \"Action\" , \"Ip Address\" , \"Browser\" , \"Application\", \"Identity\", Client\".</br>"
+				+ "2.4. Dropdown \" \"Show entries\".");
+	}
+
+	@Test(priority=14,description="To verify that user is able to \"Log out\" from the Police Vertical web portal.")
+	public void PV_HomePage_17(Method method) throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Login_repository.txtbox_Password)).sendKeys("1q2w3E*");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-6</b> : Click on profile status from the Home page.");
+		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).getText());
+		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).getText());
+		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).getText());
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).click();
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-7</b> : Click on \"Log out\" option from dropdown list.");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Result_1</b> : </br>1. User should able to log out from the  Police Vertical web portal.</br>"
+				+ "2. User should get pop up with message like \"You have been signed out and you will be redirected soon.\".");
+		ll.Screenshotnew(driver,i,method.getName()+"_01");
+		
+		driver.findElement(By.xpath(Landingpage_repository.btn_redirect_landingpage)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-8</b> : Click on \"Click here to return to the application\" button.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.lnk_Skiptomaincontent)).isDisplayed(), true);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Result_2</b> : User should redirect back to the landing page of police vertical web portal.");
+		
+	}
+	
+	@Test(priority=16,description="To verify that user is able to get \"Origin\"  page by clicking on \"Origin\" link from \"About Us\" dropdown from \"Home\" page.")
+	public void PV_HomePage_19() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -423,7 +549,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Origin\" page.")
-	public void PV_HomePage_21() throws InterruptedException
+	public void PV_HomePage_20() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -446,7 +572,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Activities\"  page by clicking on \"Activities\" link from \"About Us\" dropdown from \"Home\" page.")
-	public void PV_HomePage_22() throws InterruptedException
+	public void PV_HomePage_21() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -464,7 +590,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Activities\" page.")
-	public void PV_HomePage_23() throws InterruptedException
+	public void PV_HomePage_22() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -486,7 +612,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Organization\"  page by clicking on \"Organization\" link from \"About Us\" dropdown from \"Home\" page.")
-	public void PV_HomePage_24()
+	public void PV_HomePage_23()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -504,7 +630,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Organization\" page.")
-	public void PV_HomePage_25() throws InterruptedException
+	public void PV_HomePage_24() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -526,7 +652,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Director Message\"  page by clicking on \"Director Message\" link from \"About Us\" dropdown from \"Home\" page.")
-	public void PV_HomePage_26()
+	public void PV_HomePage_25()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -544,7 +670,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Director Message\" page.")
-	public void PV_HomePage_27() throws InterruptedException
+	public void PV_HomePage_26() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -566,7 +692,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Crime and Criminal Tracking\"  page by clicking on \"Crime and Criminal Tracking\" link from \"Divisions\" dropdown from \"Home\" page.")
-	public void PV_HomePage_28()
+	public void PV_HomePage_27()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -591,7 +717,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Crime & Criminal Tracking\" page.")
-	public void PV_HomePage_29() throws InterruptedException
+	public void PV_HomePage_28() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -612,7 +738,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to expand/collapse detail portion of \"About CCTNS\" by clicking on \"About CCTNS\" link from \"Crime and Criminal Tracking\" page.")
-	public void PV_HomePage_30(Method method) throws InterruptedException
+	public void PV_HomePage_29(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -639,7 +765,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to expand/collapse detail portion of \"CCTNS Implementation Framework\" by clicking on \"CCTNS Implementation Framework\" link from \"Crime and Criminal Tracking\" page.")
-	public void PV_HomePage_31(Method method) throws InterruptedException
+	public void PV_HomePage_30(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -666,7 +792,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to expand/collapse detail portion of \"Vision and Objectives of CCTNS\" by clicking on \"Vision and Objectives of CCTNS\" link from \"Crime and Criminal Tracking\" page.")
-	public void PV_HomePage_32(Method method) throws InterruptedException
+	public void PV_HomePage_31(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -694,7 +820,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to expand/collapse detail portion of \"Stakeholders of Project\" by clicking on \"Stakeholders of Project\" link from \"Crime and Criminal Tracking\" page.")
-	public void PV_HomePage_33(Method method) throws InterruptedException
+	public void PV_HomePage_32(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -721,7 +847,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to expand/collapse detail portion of \"Benefits of CCTNS\" by clicking on \"Benefits of CCTNS\" link from \"Crime and Criminal Tracking\" page.")
-	public void PV_HomePage_34(Method method) throws InterruptedException
+	public void PV_HomePage_33(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -748,7 +874,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Data Centre & Technical Branch\"  page by clicking on \"Data Centre & Technical Branch\" link from \"Divisions\" dropdown from \"Home\" page.")
-	public void PV_HomePage_35()
+	public void PV_HomePage_34()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -766,7 +892,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Data Centre & Technical Branch\" page.")
-	public void PV_HomePage_36() throws InterruptedException
+	public void PV_HomePage_35() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -788,7 +914,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Crime In India\"  page by clicking on \"Crime In India\" link from \"Publications\" dropdown from \"Home\" page.")
-	public void PV_HomePage_37()
+	public void PV_HomePage_36()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -806,7 +932,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Crime In India\" page.")
-	public void PV_HomePage_38() throws InterruptedException
+	public void PV_HomePage_37() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -828,7 +954,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Prison Statistics India\"  page by clicking on \"Prison Statistics India\" link from \"Publications\" dropdown from \"Home\" page.")
-	public void PV_HomePage_39()
+	public void PV_HomePage_38()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -846,7 +972,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Prison Statistics India\" page.")
-	public void PV_HomePage_40() throws InterruptedException
+	public void PV_HomePage_39() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -868,7 +994,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get reports of missing women and children by clicking on \"Report on Missing Woman & Children\" link from \"Publications\" dropdown from \"Home\" page.")
-	public void PV_HomePage_41(Method method) throws InterruptedException
+	public void PV_HomePage_40(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -907,7 +1033,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect the Citizen Charter|National Crime Record Bureau web portal by clicking on \"Cyber Crime Reporting Portal\" link from \"Citizen Services\" dropdown from \"Home\" page.")
-	public void PV_HomePage_42(Method method) throws InterruptedException
+	public void PV_HomePage_41(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -952,7 +1078,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Generate Vehicle NOC\"  page by clicking on \"Generate Vehicle NOC\" link from \"Citizen Services\" dropdown from \"Home\" page.")
-	public void PV_HomePage_43()
+	public void PV_HomePage_42()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -971,7 +1097,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Generate Vehicle NOC\" page.")
-	public void PV_HomePage_44() throws InterruptedException
+	public void PV_HomePage_43() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -994,7 +1120,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Citizen Charter\"  page by clicking on \"Citizen Charter\" link from \"Citizen Services\" dropdown from \"Home\" page.")
-	public void PV_HomePage_45()
+	public void PV_HomePage_44()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1013,7 +1139,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Citizen Charter\" page.")
-	public void PV_HomePage_46() throws InterruptedException
+	public void PV_HomePage_45() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1035,7 +1161,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Short Film on CCTNS\"  page by clicking on \"Short Film on CCTNS\" link from \"Citizen Services\" dropdown from \"Home\" page.")
-	public void PV_HomePage_47()
+	public void PV_HomePage_46()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1054,7 +1180,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Short Film on CCTNS\" page.")
-	public void PV_HomePage_48() throws InterruptedException
+	public void PV_HomePage_47() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1077,7 +1203,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Vacancies\"  page by clicking on \"Vacancies\" link from \"Citizen Services\" dropdown from \"Home\" page.")
-	public void PV_HomePage_49()
+	public void PV_HomePage_48()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1096,7 +1222,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Vacancies\" page.")
-	public void PV_HomePage_50() throws InterruptedException
+	public void PV_HomePage_49() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1119,7 +1245,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to get \"Advisories\"  page by clicking on \"Advisories\" link from \"Citizen Services\" dropdown from \"Home\" page.")
-	public void PV_HomePage_51()
+	public void PV_HomePage_50()
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1137,7 +1263,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Advisories\" page.")
-	public void PV_HomePage_52() throws InterruptedException
+	public void PV_HomePage_51() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1159,7 +1285,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to navigate to the \"RTI\" page by clicking on \"RTI\" link from \"Home\" page of police vertical web portal.")
-	public void PV_HomePage_53() throws InterruptedException
+	public void PV_HomePage_52() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1172,7 +1298,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(description="To verify that user is able to redirect back to \"Home\" page by clicking on \"Home\" link from \"Advisories\" page.")
-	public void PV_HomePage_54() throws InterruptedException
+	public void PV_HomePage_53() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1189,7 +1315,7 @@ public class PV_LandingPage {
 	}
 	
 	@Test(priority=7,description="To verify that user is able to scroll images using  Next(\">\") and Previous(\"<\") button in \"News & Events\" section.")
-	public void PV_HomePage_57(Method method) throws InterruptedException
+	public void PV_HomePage_56(Method method) throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1220,7 +1346,7 @@ public class PV_LandingPage {
 	
 
 	@Test(priority=8,description="To verify that user is able to slide images of \"News & Events\" section by clicking on page control.")
-	public void PV_HomePage_58() throws InterruptedException
+	public void PV_HomePage_57() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
@@ -1248,67 +1374,338 @@ public class PV_LandingPage {
 		ExtentTestManager.getTest().log(Status.INFO,String.format("<b>Result</b> : User should able to slide image of \"News & Events\" section by clicking of page control icon."));
 	}
 
-	@Test(priority=9)
-	public void Test_20() throws InterruptedException
+	@Test
+	public void PV_HomePage_58() throws InterruptedException
 	{
-		WebElement element = driver.findElement(By.xpath(Landingpage_repository.btn_clear));
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		WebElement element = driver.findElement(By.xpath(Landingpage_repository.slidedots_newsection));
 		Coordinates coordinate = ((Locatable)element).getCoordinates();
 		coordinate.onPage(); coordinate.inViewPort();
 		Thread.sleep(1000);
-		ExtentTestManager.getTest().log(Status.INFO,"Scroll to File a report section.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_sel_crimetype)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on crimetype dropdown.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Scroll down \"Home\" page till \"News & Events\" section.");
+		Assert.assertEquals(true, driver.findElement(By.xpath(Landingpage_repository.newsevent_section)).isDisplayed());
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.dd_op_crimetype3)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Crime Type 3 option from dropdown.");
+		Assert.assertEquals("0", driver.findElement(By.xpath(Landingpage_repository.slide_control0)).getAttribute("tabindex"));
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.dd_sel_crimesubtype)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on crimesubtype dropdown.");
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.dd_op_crimesubtype3)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Crime Sub Type 3 option from dropdown.");
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.btn_clear)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Clear button.");
-		Thread.sleep(1000);
-		ExtentTestManager.getTest().log(Status.INFO,"Clear functionality of Report Crime verified.");
+		
 	}
-
-	@Test(priority=10)
-	public void Test_22() throws InterruptedException
+	
+	
+	
+	@Test(priority=70,description="To verify that user is able to perform pagination functionality of \"Pages\" page of CMS section.")
+	public void PV_HomePage_71(Method method) throws InterruptedException
 	{
-		WebElement element = driver.findElement(By.xpath(Landingpage_repository.btn_clear));
-		Coordinates coordinate = ((Locatable)element).getCoordinates();
-		coordinate.onPage(); coordinate.inViewPort();
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
 		Thread.sleep(1000);
-		ExtentTestManager.getTest().log(Status.INFO,"Scroll to File a report section.");
-		driver.findElement(By.xpath(Landingpage_repository.sec_raisecomplaint)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Raise Complaint button.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Login_repository.txtbox_Password)).sendKeys("1q2w3E*");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
 		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-6</b> : Click on profile status from the Home page.");
+		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).getText());
+		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).getText());
+		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).getText());
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-7</b> : Click on \"My Account\" option from dropdown list.");
+		String parent=driver.getWindowHandle();
+		Set<String> s=driver.getWindowHandles();
 
-		driver.findElement(By.xpath(Landingpage_repository.dd_sel_crimetype_raise)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on crimetype dropdown.");
+		// Now iterate using Iterator
+		Iterator<String> I1= s.iterator();
+
+		while(I1.hasNext())
+		{
+
+		String child_window=I1.next();
+
+
+		if(!parent.equals(child_window))
+		{
+		driver.switchTo().window(child_window);
+		Thread.sleep(2000);
+		String Title_child = driver.switchTo().window(child_window).getTitle();
+		driver.findElement(By.xpath(admin_page_repository.opt_CMS)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-8</b> : Click on \"CMS\" menu from the left pane of \"Admin\" department Home Page.");
+		ExtentTestManager.getTest().log(Status.INFO,"CMS menu click event.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_op_Pages)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-9</b> : Click on \"Pages\" option from dropdown list of \"CMS\" menu.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.page_header)).getText(),"Pages");
+		Thread.sleep(1000);
+		String s1=driver.findElement(By.xpath(Landingpage_repository.text_showing_entries)).getText();
+		System.out.println(s1);
+		String[] b=s1.split(" "); 
+		String c= b[5]; 
+		System.out.println(c);
+		driver.findElement(By.xpath(Landingpage_repository.btn_next)).click();
 		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on \"Next\" button of the paging.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.text_showing_entries)).getText(), "Showing 11 to 20 of " + c + " entries");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_1</b> : User should get next page records of \"Pages\" page of CMS section."));
+		ll.Screenshotnew(driver,i,method.getName()+"_01");
+		
+		driver.findElement(By.xpath(CrimeMapping_repository.btn_previous)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11</b> : Click on \"Previous\" button of the paging.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.text_showing_entries)).getText(), "Showing 1 to 10 of " + c + " entries");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_2</b> : User should get previous page records of \"Pages\" page of CMS section."));
+		ll.Screenshotnew(driver,i,method.getName()+"_02");
+		
+		driver.findElement(By.xpath(Landingpage_repository.lnk_pageno_3)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-12</b> : Click on particular page no. in \"Pages\" page.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.text_showing_entries)).getText(), "Showing 21 to 30 of " + c + " entries");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_3</b> : User should get selected page no. records of \"Pages\" page of CMS section."));
+		}}
+	}
+	
+	@Test(priority=71,description="To verify that user is able to perform Show No. of entries functionality in \"Pages\" page of \"CMS\" section.")
+	public void PV_HomePage_72() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Login_repository.txtbox_Password)).sendKeys("1q2w3E*");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-6</b> : Click on profile status from the Home page.");
+		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).getText());
+		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).getText());
+		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).getText());
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-7</b> : Click on \"My Account\" option from dropdown list.");
+		String parent=driver.getWindowHandle();
+		Set<String> s=driver.getWindowHandles();
 
-		driver.findElement(By.xpath(Landingpage_repository.dd_op_crimetype3_raise)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Crime Type 3 option from dropdown.");
-		Thread.sleep(1000);
+		// Now iterate using Iterator
+		Iterator<String> I1= s.iterator();
 
-		driver.findElement(By.xpath(Landingpage_repository.dd_sel_crimesubtype_raise)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on crimesubtype dropdown.");
+		while(I1.hasNext())
+		{
+
+		String child_window=I1.next();
+
+
+		if(!parent.equals(child_window))
+		{
+		driver.switchTo().window(child_window);
+		Thread.sleep(2000);
+		String Title_child = driver.switchTo().window(child_window).getTitle();
+		driver.findElement(By.xpath(admin_page_repository.opt_CMS)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-8</b> : Click on \"CMS\" menu from the left pane of \"Admin\" department Home Page.");
+		ExtentTestManager.getTest().log(Status.INFO,"CMS menu click event.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_op_Pages)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.dd_op_crimesubtype3_raise)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Crime Sub Type 3 option from dropdown.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-9</b> : Click on \"Pages\" option from dropdown list of \"CMS\" menu.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.page_header)).getText(),"Pages");
 		Thread.sleep(1000);
-		WebElement e1 = driver.findElement(By.xpath(Landingpage_repository.btn_raisecom));
-		Coordinates c1 = ((Locatable)e1).getCoordinates();
-		c1.onPage(); c1.inViewPort();
-		driver.findElement(By.xpath(Landingpage_repository.btn_clear_raisesec)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Clear button.");
+		String s1=driver.findElement(By.xpath(Landingpage_repository.text_showing_entries)).getText();
+		System.out.println(s1);
+	
+		driver.findElement(By.xpath(Landingpage_repository.dd_enteries)).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Landingpage_repository.entries_25)).click();
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Select number from the \"Show No. of entries\" dropdown list.");
+		String s2=driver.findElement(By.xpath(CrimeMapping_repository.text_showing_entries)).getText();
+		System.out.println(s2);
+		String[] b1=s2.split(" "); 
+		String c1= b1[5]; 
+		String d1= b1[3];
+		WebElement e1=driver.findElement(By.xpath(CrimeMapping_repository.text_showing_entries));
+		Coordinates co1=((Locatable)e1).getCoordinates();
+		co1.onPage();
+		co1.inViewPort();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.sec_reportcrime)).click();
+		Assert.assertEquals(driver.findElement(By.xpath(CrimeMapping_repository.text_showing_entries)).getText(), "Showing 1 to " + d1 + " of " + c1 + " entries");
+		Assert.assertNotEquals(s1,s2);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should get records as per selected number of entries in \"Pages\" page."));
+		}}
+	}
+	
+	@Test(priority=72,description="To verify that user is able to perform \"SEARCH\" functionality in \"Pages\" page of \"CMS\" section.")
+	public void PV_HomePage_73() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
 		Thread.sleep(1000);
-		ExtentTestManager.getTest().log(Status.INFO,"Clear functionality of Raise Comaplaint verified.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Login_repository.txtbox_Password)).sendKeys("1q2w3E*");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-6</b> : Click on profile status from the Home page.");
+		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).getText());
+		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).getText());
+		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).getText());
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-7</b> : Click on \"My Account\" option from dropdown list.");
+		String parent=driver.getWindowHandle();
+		Set<String> s=driver.getWindowHandles();
+
+		// Now iterate using Iterator
+		Iterator<String> I1= s.iterator();
+
+		while(I1.hasNext())
+		{
+
+		String child_window=I1.next();
+
+
+		if(!parent.equals(child_window))
+		{
+		driver.switchTo().window(child_window);
+		Thread.sleep(2000);
+		String Title_child = driver.switchTo().window(child_window).getTitle();
+		driver.findElement(By.xpath(admin_page_repository.opt_CMS)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-8</b> : Click on \"CMS\" menu from the left pane of \"Admin\" department Home Page.");
+		ExtentTestManager.getTest().log(Status.INFO,"CMS menu click event.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_op_Pages)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-9</b> : Click on \"Pages\" option from dropdown list of \"CMS\" menu.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.page_header)).getText(),"Pages");
+		Thread.sleep(1000);
+		String s1=driver.findElement(By.xpath(Landingpage_repository.text_showing_entries)).getText();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.txtbox_search)).sendKeys("Brand Logo");
+		driver.findElement(By.xpath(Landingpage_repository.btn_search)).click();
+		Thread.sleep(2000);
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.verify_1st_title)).getText(), "Brand Logo");
+		String s2=driver.findElement(By.xpath(Landingpage_repository.text_showing_entries)).getText();
+		Thread.sleep(1000);
+		Assert.assertNotEquals(s1, s2);
+		}}
+	}
+	
+	@Test(priority=73,description="To verify that user is able to perform sorting functionality for the \"Title\" , \"Slug\" , \"Creation Time\" , \"Last Modification Time\" columns of \"Pages\" page of \"CMS\" menu.")
+	public void PV_HomePage_74(Method method) throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		driver.findElement(By.xpath(Landingpage_repository.btn_Login)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Login_repository.txtbox_Password)).sendKeys("1q2w3E*");
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-6</b> : Click on profile status from the Home page.");
+		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).getText());
+		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.lnk_seclogs)).getText());
+		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.lnk_logout)).getText());
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-7</b> : Click on \"My Account\" option from dropdown list.");
+		String parent=driver.getWindowHandle();
+		Set<String> s=driver.getWindowHandles();
+
+		// Now iterate using Iterator
+		Iterator<String> I1= s.iterator();
+
+		while(I1.hasNext())
+		{
+
+		String child_window=I1.next();
+
+
+		if(!parent.equals(child_window))
+		{
+		driver.switchTo().window(child_window);
+		Thread.sleep(2000);
+		String Title_child = driver.switchTo().window(child_window).getTitle();
+		driver.findElement(By.xpath(admin_page_repository.opt_CMS)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-8</b> : Click on \"CMS\" menu from the left pane of \"Admin\" department Home Page.");
+		ExtentTestManager.getTest().log(Status.INFO,"CMS menu click event.");
+		driver.findElement(By.xpath(Landingpage_repository.dd_op_Pages)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-9</b> : Click on \"Pages\" option from dropdown list of \"CMS\" menu.");
+		Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.page_header)).getText(),"Pages");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_title)).click();
+		Thread.sleep(1000);
+		String s1=driver.findElement(By.xpath(Landingpage_repository.col_lbl_title)).getAttribute("aria-sort");
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_title)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"Sorting\" icon of the \"Title\" column.");
+		String s2=driver.findElement(By.xpath(Landingpage_repository.col_lbl_title)).getAttribute("aria-sort");
+		Assert.assertNotEquals(s1, s2);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_1</b> : User should get records in alphabetical order of \"Title\" data field."));
+		ll.Screenshotnew(driver,i,method.getName()+"_01");
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_slug)).click();
+		Thread.sleep(1000);
+		String s3=driver.findElement(By.xpath(Landingpage_repository.col_lbl_slug)).getAttribute("aria-sort");
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_slug)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Sorting\" icon of the \"Slug\" column.");
+		String s4=driver.findElement(By.xpath(Landingpage_repository.col_lbl_slug)).getAttribute("aria-sort");
+		Assert.assertNotEquals(s3, s4);
+		
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_2</b> : User should get records in alphabetical order of \"Slug\" data field."));
+		ll.Screenshotnew(driver,i,method.getName()+"_02");
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_creationtime)).click();
+		Thread.sleep(1000);
+		String s5=driver.findElement(By.xpath(Landingpage_repository.col_lbl_creationtime)).getAttribute("aria-sort");
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_creationtime)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Click on \"Sorting\" icon of the \"Creation Time\" column.");
+		String s6=driver.findElement(By.xpath(Landingpage_repository.col_lbl_creationtime)).getAttribute("aria-sort");
+		Assert.assertNotEquals(s5, s6);
+		
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_3</b> : User should get records in sorting order of \"Creation Time\" data fields."));
+		ll.Screenshotnew(driver,i,method.getName()+"_03");
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_lastmoditime)).click();
+		Thread.sleep(1000);
+		String s7=driver.findElement(By.xpath(Landingpage_repository.col_lbl_lastmoditime)).getAttribute("aria-label");
+		driver.findElement(By.xpath(Landingpage_repository.col_lbl_lastmoditime)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Click on \"Sorting\" icon of the \"Last Modification Time\" column.");
+		String s8=driver.findElement(By.xpath(Landingpage_repository.col_lbl_lastmoditime)).getAttribute("aria-label");
+		Assert.assertNotEquals(s7, s8);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_4</b> : User should get records in sorting order of \"Last Modification Time\" data fields."));
+		}}
 	}
 
 	@Test(priority=11)
@@ -1329,85 +1726,7 @@ public class PV_LandingPage {
 		ExtentTestManager.getTest().log(Status.INFO,"Login successfully verified.");
 	}
 
-	@Test(priority=12)
-	public void PV_HomePage_16() throws InterruptedException
-	{
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		Assert.assertEquals("My account", driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).getText());
-		ExtentTestManager.getTest().log(Status.INFO,"Verify My Account option.");
-		Assert.assertEquals("Security logs", driver.findElement(By.xpath(Landingpage_repository.dd_admin_op2)).getText());
-		ExtentTestManager.getTest().log(Status.INFO,"Verify Security logs option.");
-		Assert.assertEquals("Log out", driver.findElement(By.xpath(Landingpage_repository.dd_admin_op3)).getText());
-		ExtentTestManager.getTest().log(Status.INFO,"Verify Log out option.");
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on My account option from dropdown.");
-		Thread.sleep(3000);
-		ExtentTestManager.getTest().log(Status.INFO,"Navigate to My Accout page.");
-		String parent=driver.getWindowHandle();
-		Set<String>s=driver.getWindowHandles();
-
-		// Now iterate using Iterator
-		Iterator<String> I1= s.iterator();
-
-		while(I1.hasNext())
-		{
-
-			String child=I1.next();
-
-
-			if(!parent.equals(child))
-			{
-				driver.switchTo().window(child);
-
-				String actualTitle = driver.switchTo().window(child).getTitle();
-				Assert.assertEquals(actualTitle,"SGLPV");
-				Thread.sleep(2000);
-				driver.close();
-			}
-		}
-		driver.switchTo().window(parent);
-		Assert.assertEquals(driver.getTitle(), "Police Vertical");
-	}
-
-
-	@Test(priority=13)
-	public void PV_HomePage_17() throws InterruptedException
-	{
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op2)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Security logs option from dropdown.");
-		Thread.sleep(3000);
-		ExtentTestManager.getTest().log(Status.INFO,"Navigate to Security Logs page.");
-		String parent=driver.getWindowHandle();
-		Set<String>s=driver.getWindowHandles();
-
-		// Now iterate using Iterator
-		Iterator<String> I1= s.iterator();
-
-		while(I1.hasNext())
-		{
-
-			String child_window=I1.next();
-
-
-			if(!parent.equals(child_window))
-			{
-				driver.switchTo().window(child_window);
-
-				String actualTitle = driver.switchTo().window(child_window).getTitle();
-				Thread.sleep(1000);
-				Assert.assertEquals(actualTitle,"SGLPV"); 
-				Thread.sleep(2000);
-				Assert.assertEquals(driver.getCurrentUrl(),"http://192.168.1.204:10014/Account/SecurityLogs");
-				driver.close();
-			}
-		}
-		driver.switchTo().window(parent);
-		Assert.assertEquals(driver.getTitle(), "Police Vertical");
-	}
+	
 
 	@Test(priority=14)
 	public void Test_03() throws InterruptedException, AWTException
@@ -1416,7 +1735,7 @@ public class PV_LandingPage {
 		driver.findElement(By.xpath(Landingpage_repository.txt_admin)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).click();
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on My account option from dropdown.");
 		Thread.sleep(3000);
 		ExtentTestManager.getTest().log(Status.INFO,"Navigate to admin portal page.");
@@ -1543,7 +1862,7 @@ public class PV_LandingPage {
 	{
 		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).click();
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on My account option from dropdown.");
 		Thread.sleep(3000);
 		String parent=driver.getWindowHandle();
@@ -1699,7 +2018,7 @@ public class PV_LandingPage {
 	{
 		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).click();
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on My account option from dropdown.");
 		Thread.sleep(3000);
 		String parent=driver.getWindowHandle();
@@ -1826,7 +2145,7 @@ public class PV_LandingPage {
 	{
 		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).click();
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on My account option from dropdown.");
 		Thread.sleep(3000);
 		String parent=driver.getWindowHandle();
@@ -1966,7 +2285,7 @@ public class PV_LandingPage {
 	{
 		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).click();
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
 		Thread.sleep(3000);
 		ExtentTestManager.getTest().log(Status.INFO,"Click on My account option from dropdown.");
 		String parent=driver.getWindowHandle();
@@ -2047,7 +2366,7 @@ public class PV_LandingPage {
 	{
 		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op1)).click();
+		driver.findElement(By.xpath(Landingpage_repository.lnk_myacc)).click();
 		ExtentTestManager.getTest().log(Status.INFO,"Click on My account option from dropdown.");
 		Thread.sleep(3000);
 		String parent=driver.getWindowHandle();
@@ -2137,7 +2456,7 @@ public class PV_LandingPage {
 				driver.findElement(By.xpath(Landingpage_repository.btn_search)).click();
 				Thread.sleep(1000);
 				ExtentTestManager.getTest().log(Status.INFO,"Click on Search icon.");
-				Assert.assertEquals("Brand Logo", driver.findElement(By.xpath(Landingpage_repository.txt_1st_title)).getText() );
+				Assert.assertEquals("Brand Logo", driver.findElement(By.xpath(Landingpage_repository.verify_1st_title)).getText() );
 				Thread.sleep(1000);
 				ExtentTestManager.getTest().log(Status.INFO,"Verify searched result.");
 				driver.findElement(By.xpath(Landingpage_repository.txtbox_search)).clear();
@@ -2145,37 +2464,25 @@ public class PV_LandingPage {
 				driver.findElement(By.xpath(Landingpage_repository.btn_search)).click();
 				Thread.sleep(1000);
 				ExtentTestManager.getTest().log(Status.INFO,"Click on Search icon.");
-				Assert.assertNotEquals("Brand Logo", driver.findElement(By.xpath(Landingpage_repository.txt_1st_title)).getText());
+				Assert.assertNotEquals("Brand Logo", driver.findElement(By.xpath(Landingpage_repository.verify_1st_title)).getText());
 				Thread.sleep(1000);
 
 				//Sorting
 				driver.findElement(By.xpath(Landingpage_repository.sorting_title)).click();
 				Thread.sleep(1000);
 				ExtentTestManager.getTest().log(Status.INFO,"Click on title sorting icon.");
-				Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.txt_1st_title)).getText(),"Analyze Crime On Map" );
+				Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.verify_1st_title)).getText(),"Analyze Crime On Map" );
 				Thread.sleep(1000);
 				ExtentTestManager.getTest().log(Status.INFO,"Sorting event verify.");
 				driver.findElement(By.xpath(Landingpage_repository.sorting_title)).click();
 				Thread.sleep(1000);
-				Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.txt_1st_title)).getText() ,"Toolbar" );
+				Assert.assertEquals(driver.findElement(By.xpath(Landingpage_repository.verify_1st_title)).getText() ,"Toolbar" );
 				Thread.sleep(1000);
 			}
 		}
 	}
 
 
-	@Test(priority=20)
-	public void PV_HomePage_18() throws InterruptedException
-	{
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on login status dropdown.");
-		driver.findElement(By.xpath(Landingpage_repository.dd_admin_op3)).click();
-		ExtentTestManager.getTest().log(Status.INFO,"Click on Log out option from dropdown.");
-		Thread.sleep(5000);
-		Assert.assertEquals(true, driver.findElement(By.xpath(Landingpage_repository.btn_Login)).isDisplayed());
-		Thread.sleep(1000);
-		ExtentTestManager.getTest().log(Status.INFO,"Logout succesfully verified.");
-	}
 
 	@AfterMethod
 

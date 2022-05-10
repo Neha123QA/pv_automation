@@ -2,7 +2,7 @@ package pv_admin;
 
 public class Landingpage_repository {
 	
-	static final String url_landingpage="https://qapoc.sgligis.com:10013/";
+	static final String url_landingpage="https://pvqaweb.sgligis.com";
 	static final String logo="//a[@class='logo']";
 	static final String logo_text="//a[@class='logo']/span";
 	static final String header="//header";
@@ -11,7 +11,8 @@ public class Landingpage_repository {
 	static final String lnk_Services="//div[@class='main-menu']/div/div[2]/nav/ul/li[2]";
 	static final String lnk_CaptureCrime="//div[@class='main-menu']/div/div[2]/nav/ul/li[4]";
 	static final String lnk_Skiptomaincontent="//a[contains(text(),'Skip To Main Content')]";
-	static final String text_Skiptomaincontent="//a[text()='Skip to Main Content']";
+	static final String text_Skiptomaincontent="//a[text()='Skip To Main Content']";
+	static final String text_Skiptomaincontent_hi="//a[text()='मुख्य विषयवस्तु में जाएं']";
 	static final String lnk_red_color="//a[@class='red color-box']";
 	static final String lnk_white_color="//a[@class='white color-box']";
 	static final String lnk_yellow_color="//a[@class='yellow color-box']";
@@ -19,17 +20,19 @@ public class Landingpage_repository {
 	static final String lnk_decrease_fontsize="//a[@class='decrease-font']";
 	static final String lnk_default_fontsize="(//a[text()='A'])[2]";
 	static final String lnk_increase_fontsize="//a[@class='increase-font']";
-	static final String lang_dd="//header/div[@class='container-fluid']/div[1]/div/ul/li[5]/div";
-	static final String lang_op="//header/div[@class='container-fluid']/div[1]/div/ul/li[5]/div/div";
-	static final String lan_lnk="//header/div[@class='container-fluid']/div[1]/div/ul/li[5]/div/a/span[2]";
+	static final String lang_dd="//a[@id='dropdownMenuLink']";
+	static final String lang_op="//a[@class='dropdown-item']";
+	static final String lan_lnk="//span[@class='current-language-name']";
 	static final String btn_GotoMap="//div[@class='main-menu']/div/div[2]/nav/ul/li[5]/a/span[2]";
 	static final String Mapcontainer="//div[@class='sgl_igis_3d-container']";
 	static final String btn_Login="//a[@class='signbtn']";
 	static final String txt_admin="//a[@class='dropdown-toggle btn']";
 	static final String dd_admin="//a[@class='dropdown-toggle btn']";
-	static final String dd_admin_op1="//div[@class='col-md-12 right-text']/ul/li[6]/div/div[2]/a[1]";
-	static final String dd_admin_op2="//div[@class='col-md-12 right-text']/ul/li[6]/div/div[2]/a[2]";
-	static final String dd_admin_op3="//div[@class='col-md-12 right-text']/ul/li[6]/div/div[2]/a[3]";
+	static final String lnk_myacc="//a[@id='MenuItem_Account.Manage']";
+	static final String lnk_seclogs="//a[@id='MenuItem_Account.SecurityLogs']";
+	static final String tab_seclog_adminportal="//a[@id='SecurityLogs-tab']";
+	static final String lnk_logout="//a[@id='MenuItem_Account.Logout']";
+	static final String btn_redirect_landingpage="//a[@id='redirectButton']";
 	static final String newsevent_section="//div[@class='news-event']";
 	static final String next_arrow_newssection="//button[@class='slick-next slick-arrow']";
 	static final String pre_arrow_newssection="//button[@class='slick-prev slick-arrow']";
@@ -114,8 +117,8 @@ public class Landingpage_repository {
 	//xpath of admin portal used in Landing Page
 	static final String btn_returnapp="//a[@id='returnUrlLink']";
 	static final String dd_CMS="//div[@id='mCSB_1_container']/nav/ul/li[5]/a/span[@class='lp-text']";
-	static final String dd_op_Pages="//div[@class='mCSB_container']/nav/ul/li[5]/ul/li[1]";
-	static final String page_header="//div[@class='col-auto']/h1";
+	static final String dd_op_Pages="//span[contains(text(),'Pages')]";
+	static final String page_header="//li[@class='breadcrumb-item active']";
 	static final String btn_Actions_logo="//div[@class='dataTables_scrollBody']/table/tbody/tr[4]/td/div/button";
 	static final String btn_edit="//ul[@class='dropdown-menu show']/li[1]";
 	static final String btn_delete="//ul[@class='dropdown-menu show']/li[2]";
@@ -142,12 +145,17 @@ public class Landingpage_repository {
 	static final String btn_next="//li[@id='PagesTable_next']";
 	static final String btn_previous="//li[@id='PagesTable_previous']";
 	static final String dd_enteries="//select[@class='custom-select custom-select-sm form-control form-control-sm']";
+	static final String lnk_pageno_3="//a[text()='3']";
 	static final String entries_25="//select/option[@value='25']";
 	static final String entries_10="//select/option[@value='10']";
 	static final String txt_entries="//div[contains(text(),'Showing')]";
 	static final String btn_search="//button[@class='btn btn-primary']";
 	static final String txtbox_search="//input[@class='form-control page-search-filter-text']";
-	static final String txt_1st_title="//table[@id='PagesTable']/tbody/tr[1]/td[2]";
+	static final String verify_1st_title="//table[@id='PagesTable']/tbody/tr[1]/td[2]";
 	static final String sorting_title="//div[@class='dataTables_scrollHead']//thead/tr/th[2]";
-	
+	static final String text_showing_entries="(//div[contains(text(),'Showing')])[1]";
+	static final String col_lbl_title="//th[text()='Title']";
+	static final String col_lbl_slug="//th[text()='Slug']";
+	static final String col_lbl_creationtime="//th[text()='Creation Time']";
+	static final String col_lbl_lastmoditime="//th[text()='Last Modification Time']";
 }

@@ -55,7 +55,7 @@ public class PV_Settings {
 	@BeforeMethod
 	public void Openurl() throws InterruptedException 
 	{
-		driver.get(admin_page_repository.url_admin);
+		driver.get(Login_repository.url);
 		
 		Thread.sleep(2000);
 		driver.manage().window().maximize();

@@ -239,19 +239,56 @@
       </test>
 -->
 
- 
+ <!--
 <test name="PV_LayerManagement"> 
       <classes>
       <class name="pv_admin.PV_LayerManagement">
       <methods>
-      	<!-- 
+      	
+      	<include name="PV_LayerManagement_01()"/>
+      	<include name="PV_LayerManagement_02()"/>
+      	<include name="PV_LayerManagement_03()"/>
+      	<include name="PV_LayerManagement_04()"/>
+      	<include name="PV_LayerManagement_05()"/>
+      	<include name="PV_LayerManagement_06()"/>
+      	<include name="PV_LayerManagement_07()"/>
+      	<include name="PV_LayerManagement_08()"/>
+      	<include name="PV_LayerManagement_09()"/>
+      	<include name="PV_LayerManagement_10()"/>
+		<include name="PV_LayerManagement_11()"/>
+		<include name="PV_LayerManagement_12()"/>
+		<include name="PV_LayerManagement_13()"/>
+		<include name="PV_LayerManagement_14()"/>
+		<include name="PV_LayerManagement_15()"/>
+		<include name="PV_LayerManagement_16()"/>
+		<include name="PV_LayerManagement_17()"/>
+		<include name="PV_LayerManagement_18()"/>
+		<include name="PV_LayerManagement_19()"/>
+		<include name="PV_LayerManagement_20()"/>
+		<include name="PV_LayerManagement_21()"/>
+		<include name="PV_LayerManagement_22()"/>
+		<include name="PV_LayerManagement_23()"/>
+		<include name="PV_LayerManagement_24()"/>
+		<include name="PV_LayerManagement_25()"/>
+		<include name="PV_LayerManagement_26()"/>
+		<include name="PV_LayerManagement_27()"/>
+		<include name="PV_LayerManagement_28()"/>
+		<include name="PV_LayerManagement_29()"/>
+		<include name="PV_LayerManagement_30()"/>
+		<include name="PV_LayerManagement_31()"/>
+		<include name="PV_LayerManagement_32()"/>
+		<include name="PV_LayerManagement_33()"/>
+		<include name="PV_LayerManagement_34()"/>
+		<include name="PV_LayerManagement_35()"/>
+		<include name="PV_LayerManagement_36()"/>
+		<include name="PV_LayerManagement_37()"/>
+
       	<include name="PV_LayerManagement_38()"/>
      	<include name="PV_LayerManagement_39()"/>
-     	
      	<include name="PV_LayerManagement_42()"/>
-     	-->
+     	
      	<include name="PV_LayerManagement_43()"/>
-     	<!-- 
+     	
      	<include name="PV_LayerManagement_44()"/>
      	<include name="PV_LayerManagement_45()"/>
      	<include name="PV_LayerManagement_46()"/>
@@ -274,7 +311,58 @@
      	<include name="PV_LayerManagement_67()"/>
      	<include name="PV_LayerManagement_41()"/>
      	<include name="PV_LayerManagement_40()"/>
-     	-->
+     	
+     	<include name="PV_LayerManagement_68()"/>
+		<include name="PV_LayerManagement_69()"/>
+		<include name="PV_LayerManagement_70()"/>
+		<include name="PV_LayerManagement_71()"/>
+		<include name="PV_LayerManagement_72()"/>
+		<include name="PV_LayerManagement_73()"/>
+		<include name="PV_LayerManagement_74()"/>
+		<include name="PV_LayerManagement_75()"/>
+		<include name="PV_LayerManagement_76()"/>
+		<include name="PV_LayerManagement_77()"/>
+		<include name="PV_LayerManagement_78()"/>
+		<include name="PV_LayerManagement_79()"/>
+		<include name="PV_LayerManagement_80()"/>
+		<include name="PV_LayerManagement_81()"/>
+		<include name="PV_LayerManagement_82()"/>
+		<include name="PV_LayerManagement_83()"/>
+		<include name="PV_LayerManagement_84()"/>
+		<include name="PV_LayerManagement_85()"/>
+		<include name="PV_LayerManagement_86()"/>
+		<include name="PV_LayerManagement_87()"/>
+		<include name="PV_LayerManagement_88()"/>
+		<include name="PV_LayerManagement_89()"/>
+		<include name="PV_LayerManagement_90()"/>
+		<include name="PV_LayerManagement_91()"/>
+		<include name="PV_LayerManagement_92()"/>
+		<include name="PV_LayerManagement_93()"/>
+		<include name="PV_LayerManagement_94()"/>
+		<include name="PV_LayerManagement_95()"/>
+		<include name="PV_LayerManagement_96()"/>
+		<include name="PV_LayerManagement_97()"/>
+		<include name="PV_LayerManagement_98()"/>
+		<include name="PV_LayerManagement_99()"/>
+		<include name="PV_LayerManagement_100()"/>
+		<include name="PV_LayerManagement_101()"/>
+		<include name="PV_LayerManagement_102()"/>
+		<include name="PV_LayerManagement_103()"/>
+		<include name="PV_LayerManagement_104()"/>
+		<include name="PV_LayerManagement_105()"/>
+		<include name="PV_LayerManagement_106()"/>
+		<include name="PV_LayerManagement_107()"/>
+		<include name="PV_LayerManagement_108()"/>
+		<include name="PV_LayerManagement_109()"/>
+		<include name="PV_LayerManagement_110()"/>
+		<include name="PV_LayerManagement_111()"/>
+		<include name="PV_LayerManagement_112()"/>
+		<include name="PV_LayerManagement_113()"/>
+		<include name="PV_LayerManagement_114()"/>
+		<include name="PV_LayerManagement_115()"/>
+		<include name="PV_LayerManagement_116()"/>
+		<include name="PV_LayerManagement_117()"/>
+     	
      	
      
 	 </methods>
@@ -282,7 +370,178 @@
       </classes>
       
       </test>
- 
+  -->
+
+
+  <test name="PV_Patrollings"> 
+      <classes>
+      <class name="pv_admin.PV_Patrollings">
+      <methods>       
+      
+			<include name= "PV_Patrollings_64()"/>
+			 </methods>
+      </class>
+   	</classes>
+      </test>
+
+
+ <!--
+  <test name="PV_CrimeMapping"> 
+      <classes>
+      <class name="pv_admin.PV_CrimeMapping">
+      <methods>       
+      
+			<include name= "PV_CrimeMapping_01()"/>
+			<include name= "PV_CrimeMapping_02()"/>
+			<include name= "PV_CrimeMapping_03()"/>
+			<include name= "PV_CrimeMapping_04()"/>
+			<include name= "PV_CrimeMapping_05()"/>
+			<include name= "PV_CrimeMapping_06()"/>
+			<include name= "PV_CrimeMapping_07()"/>
+			<include name= "PV_CrimeMapping_08()"/>
+			<include name= "PV_CrimeMapping_09()"/>
+			<include name= "PV_CrimeMapping_10()"/>
+			<include name= "PV_CrimeMapping_11()"/>
+			<include name= "PV_CrimeMapping_12()"/>
+			<include name= "PV_CrimeMapping_13()"/>
+			<include name= "PV_CrimeMapping_14()"/>
+			<include name= "PV_CrimeMapping_15()"/>
+			<include name= "PV_CrimeMapping_16()"/>
+			<include name= "PV_CrimeMapping_17()"/>
+			<include name= "PV_CrimeMapping_18()"/>
+			<include name= "PV_CrimeMapping_19()"/>
+			<include name= "PV_CrimeMapping_20()"/>
+			<include name= "PV_CrimeMapping_21()"/>
+			<include name= "PV_CrimeMapping_22()"/>
+			<include name= "PV_CrimeMapping_23()"/>
+			<include name= "PV_CrimeMapping_26()"/>
+			<include name= "PV_CrimeMapping_27()"/>
+			<include name= "PV_CrimeMapping_28()"/>
+			<include name= "PV_CrimeMapping_29()"/>
+			<include name= "PV_CrimeMapping_30()"/>
+			<include name= "PV_CrimeMapping_31()"/>
+			<include name= "PV_CrimeMapping_32()"/>
+			<include name= "PV_CrimeMapping_33()"/>
+			<include name= "PV_CrimeMapping_34()"/>
+			<include name= "PV_CrimeMapping_35()"/>
+			<include name= "PV_CrimeMapping_36()"/>
+			<include name= "PV_CrimeMapping_37()"/>
+			<include name= "PV_CrimeMapping_38()"/>
+			<include name= "PV_CrimeMapping_39()"/>
+			<include name= "PV_CrimeMapping_40()"/>
+			<include name= "PV_CrimeMapping_41()"/>
+			<include name= "PV_CrimeMapping_42()"/>
+			<include name= "PV_CrimeMapping_43()"/>
+			<include name= "PV_CrimeMapping_44()"/>
+			<include name= "PV_CrimeMapping_45()"/>
+			<include name= "PV_CrimeMapping_46()"/>
+			<include name= "PV_CrimeMapping_47()"/>
+			<include name= "PV_CrimeMapping_48()"/>
+			<include name= "PV_CrimeMapping_49()"/>
+			<include name= "PV_CrimeMapping_50()"/>
+			<include name= "PV_CrimeMapping_51()"/>
+			<include name= "PV_CrimeMapping_52()"/>
+			<include name= "PV_CrimeMapping_53()"/>
+			<include name= "PV_CrimeMapping_54()"/>
+			<include name= "PV_CrimeMapping_55()"/>
+			<include name= "PV_CrimeMapping_56()"/>
+			<include name= "PV_CrimeMapping_57()"/>
+			<include name= "PV_CrimeMapping_58()"/>
+			<include name= "PV_CrimeMapping_59()"/>
+			<include name= "PV_CrimeMapping_60()"/>
+			<include name= "PV_CrimeMapping_61()"/>
+			<include name= "PV_CrimeMapping_62()"/>
+			<include name= "PV_CrimeMapping_63()"/>
+			<include name= "PV_CrimeMapping_64()"/>
+			<include name= "PV_CrimeMapping_65()"/>
+			<include name= "PV_CrimeMapping_66()"/>
+			<include name= "PV_CrimeMapping_67()"/>
+			<include name= "PV_CrimeMapping_68()"/>
+			<include name= "PV_CrimeMapping_24()"/>
+			<include name= "PV_CrimeMapping_25()"/>
+			<include name= "PV_CrimeMapping_69()"/>
+			<include name= "PV_CrimeMapping_70()"/>
+			<include name= "PV_CrimeMapping_71()"/>
+			<include name= "PV_CrimeMapping_72()"/>
+			<include name= "PV_CrimeMapping_73()"/>
+			<include name= "PV_CrimeMapping_74()"/>
+			<include name= "PV_CrimeMapping_75()"/>
+			<include name= "PV_CrimeMapping_76()"/>
+			<include name= "PV_CrimeMapping_77()"/>
+			<include name= "PV_CrimeMapping_78()"/>
+			<include name= "PV_CrimeMapping_79()"/>
+			<include name= "PV_CrimeMapping_80()"/>
+			<include name= "PV_CrimeMapping_81()"/>
+			<include name= "PV_CrimeMapping_83()"/>
+			<include name= "PV_CrimeMapping_82()"/>
+			
+			<include name= "PV_CrimeMapping_84()"/>
+			<include name= "PV_CrimeMapping_85()"/>
+			<include name= "PV_CrimeMapping_86()"/>
+			<include name= "PV_CrimeMapping_87()"/>
+			<include name= "PV_CrimeMapping_88()"/>
+			<include name= "PV_CrimeMapping_89()"/>
+			<include name= "PV_CrimeMapping_90()"/>
+			<include name= "PV_CrimeMapping_91()"/>
+			<include name= "PV_CrimeMapping_92()"/>
+			<include name= "PV_CrimeMapping_93()"/>
+			<include name= "PV_CrimeMapping_94()"/>
+			<include name= "PV_CrimeMapping_95()"/>
+			<include name= "PV_CrimeMapping_96()"/>
+			<include name= "PV_CrimeMapping_97()"/>
+			<include name= "PV_CrimeMapping_98()"/>
+			<include name= "PV_CrimeMapping_99()"/>
+			<include name= "PV_CrimeMapping_100()"/>
+			<include name= "PV_CrimeMapping_101()"/>
+			<include name= "PV_CrimeMapping_102()"/>
+			<include name= "PV_CrimeMapping_103()"/>
+			<include name= "PV_CrimeMapping_104()"/>
+			<include name= "PV_CrimeMapping_105()"/>
+			<include name= "PV_CrimeMapping_106()"/>
+			<include name= "PV_CrimeMapping_107()"/>
+			<include name= "PV_CrimeMapping_108()"/>
+			<include name= "PV_CrimeMapping_109()"/>
+			<include name= "PV_CrimeMapping_110()"/>
+			<include name= "PV_CrimeMapping_111()"/>
+			
+			<include name= "PV_CrimeMapping_113()"/>
+			<include name= "PV_CrimeMapping_112()"/>
+			<include name= "PV_CrimeMapping_114()"/>
+			<include name= "PV_CrimeMapping_115()"/>
+			<include name= "PV_CrimeMapping_116()"/>
+			<include name= "PV_CrimeMapping_117()"/>
+			<include name= "PV_CrimeMapping_118()"/>
+			<include name= "PV_CrimeMapping_119()"/>
+			<include name= "PV_CrimeMapping_120()"/>
+			<include name= "PV_CrimeMapping_121()"/>
+			<include name= "PV_CrimeMapping_122()"/>
+			<include name= "PV_CrimeMapping_123()"/>
+			<include name= "PV_CrimeMapping_124()"/>
+			<include name= "PV_CrimeMapping_125()"/>
+			<include name= "PV_CrimeMapping_126()"/>
+			<include name= "PV_CrimeMapping_127()"/>
+			<include name= "PV_CrimeMapping_128()"/>
+			<include name= "PV_CrimeMapping_129()"/>
+			<include name= "PV_CrimeMapping_131()"/>
+			<include name= "PV_CrimeMapping_130()"/>
+			
+      </methods>
+      </class>
+   	</classes>
+      </test>
+   -->   
+      
+      <!-- 
+      <test name="PV_UserManagement"> 
+      <classes>
+      <class name="pv_admin.PV_UserManagement">
+      <methods>
+      <include name="PV_UserManagement_173()"/>
+       </methods>
+      </class>
+   </classes>
+      </test>
+      -->
  
 <!-- 
      <test name="PV_LandingPage"> 
