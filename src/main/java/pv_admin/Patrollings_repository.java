@@ -91,4 +91,14 @@ public class Patrollings_repository {
 	static final String txtarea_des_newrestype_win="//textarea[@id='ResourceType_Description']";
 	static final String val_restypename="//span[@id='ResourceType_ResourceTypeName-error']";
 	
+	//------------Resources-----------
+	static final String btn_newresource="//button[@id='NewResourceButton']";
+	static final String col_lbl_resname="//th[text()='Resource Name']";
+	static final String col_lbl_totcount="//th[text()='Total Count']";
+	static final String txtbox_resname="//input[@id='Resource_ResourceName']";
+	static final String dd_restype="//select[@id='Resource_ResourceType']";
+	static final String txtbox_totcount="//input[@id='Resource_TotalCount']";
+	static final String val_resname="//span[@id='Resource_ResourceName-error']";
+	static final String val_totcount="//span[@id='Resource_TotalCount-error']";
+	
 }

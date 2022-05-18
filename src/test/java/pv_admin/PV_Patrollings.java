@@ -15,7 +15,11 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Coordinates;
 import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
@@ -35,6 +39,7 @@ public class PV_Patrollings {
 	String i="PV_Patrollings_extra_ss";
 	FirefoxProfile geoenabled = new FirefoxProfile();
 	
+	
 	@BeforeClass
 	public void setDriver(ITestContext context) throws InterruptedException
 	{
@@ -48,7 +53,7 @@ public class PV_Patrollings {
 	@Test
 	public void Openurl(ITestContext context) throws InterruptedException, MalformedURLException 
 	{
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		
 		System.setProperty("webdriver.gecko.driver", "D:\\Selenium\\GeckoDriver\\geckodriver.exe");
 		//driver=new FirefoxDriver();
 		
@@ -83,11 +88,13 @@ public class PV_Patrollings {
 		  Thread.sleep(2000);
 		  driver.manage().window().maximize();
 		  driver.manage().deleteAllCookies();
-		
+		  driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.get("http://pvqaadmin.sgligis.com");
 		Thread.sleep(2000);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
+		
 		driver.findElement(By.xpath(Login_repository.btn_Login)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(Login_repository.txtbox_Username)).sendKeys("Admin");
@@ -96,6 +103,12 @@ public class PV_Patrollings {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Login_repository.btn_Login1)).click();
 		Thread.sleep(5000);
+	}
+	
+	public static void explicitwait(WebDriver driver,WebElement element,int timeout)
+	{
+		new WebDriverWait(driver,timeout).until(ExpectedConditions.visibilityOf(element));
+		//element.sendKeys(val);
 	}
 	
 	@Test(priority=0,description="To verify that user is able to expand/collapse \"Patrollings\" menu from left panel of \"Home\" page of Police Vertical web portal.")
@@ -1162,6 +1175,8 @@ public class PV_Patrollings {
 		WebElement tomDate = driver.findElement(By.xpath(Patrollings_repository.txtbox_registrationdate)); 
 		tomDate.sendKeys(tommorowsDate); 
 		Thread.sleep(3000);
+		System.out.println(tommorowsDate);
+		
 		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Enter/select future \"Registration Date\" into \"Registration Date\" text-box.");
 		driver.findElement(By.xpath(Patrollings_repository.txtbox_vehicleno)).click();
 		Thread.sleep(1000);
@@ -2578,7 +2593,7 @@ public class PV_Patrollings {
 		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result_3</b> : User should get records in sorting order of \"Description\" data field."));
 	}
 	
-	@Test
+	@Test(priority=66,description="To verify that user is able to get Landing Page of \"Resources\".")
 	public void PV_Patrollings_67() throws InterruptedException
 	{
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
@@ -2587,14 +2602,328 @@ public class PV_Patrollings {
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
 		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
 		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.searchbox)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.col_lbl_actions)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.col_lbl_resname)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.col_lbl_restypename)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.col_lbl_totcount)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.btn_next)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.btn_previous)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.dd_entries)).isDisplayed(), true);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should get \"Resources\" page with following :</br>"
+				+ "1. Buttons: \"New Resource\" , \"Next\" , \"Previous\" ,  Page Control Numbers, .</br>"
+				+ "2. Text-box : \"SEARCH\".</br>"
+				+ "3. Table of users with following column fields :</br>"
+				+ "\"Actions\" , \"Resource Type Name\", \"Resource Name\" , \"Total\".</br>"
+				+ "4. Dropdown : \"Actions\" button for each Resource Type listed in page ,\"Show entries\" .</br>"
+				+ "5. Links : \"Home\" icon."));
+	}
+	
+	@Test(priority=67,description="To verify that user is able to get \"New Resource\" window.")
+	public void PV_Patrollings_68()
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.txtbox_resname)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.dd_restype)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.btn_close)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.btn_cancel)).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.btn_save)).isDisplayed(), true);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should get \"New Resource\" window with following :</br>"
+				+ "1. Text-boxes : \"Resource Name\" , \"Total Count\".</br>"
+				+ "2. Dropdown : \"Resource Type\".</br>"
+				+ "3. Buttons : \"Cancel\" , \"save\" , close(\"X\")."));
+	}
+	
+	@Test(priority=68,description="To verify that user is able to add \"New Resource\" by performing \"New Resource\" functionality from \"Resources\" page.")
+	public void PV_Patrollings_69() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_resname)).sendKeys("Test Resource");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Enter \"Resource Name\" into respective text-box.");
+		Select select = new Select(driver.findElement(By.xpath(Patrollings_repository.dd_restype)));
+		select.selectByVisibleText("Gun");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Select \"Resource Type\" from respective dropdown.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).sendKeys("2");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Enter \"Total Count\" into respective text-box.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_save)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Patrollings_repository.menu_item_resourcetypes)).click();
-		Thread.sleep(3000);
-		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resource Types\" menu from left pane.");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11</b> : Click on \"Save\" button  of \"New Resource\" window.");
+		Assert.assertEquals(driver.findElements(By.xpath(Patrollings_repository.title_window)).size()!=0, false);
+		driver.findElement(By.xpath(Patrollings_repository.searchbox)).sendKeys("Test Resource");
+		Thread.sleep(1000);
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.verify_first)).getText(), "Test Resource");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : </br>1. User should able to click on \"New Resource\" window and window should close.</br>"
+				+ "2. Added resource should display in list of \"Resources\" page."));
+	}
+	
+	@Test(priority=69,description="To verify that user is able to close \"New Resource\" window.")
+	public void PV_Patrollings_70() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_close)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on close(\"X\") button of \"New Resource\" window.");
+		Thread.sleep(1000);
+		Assert.assertEquals(driver.findElements(By.xpath(Patrollings_repository.title_window)).size()!=0, false);
+		
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to close \"New Resource\" window."));
+	}
+	
+	@Test(priority=70,description="To verify that user is able to perform \"Cancel\" functionality of \"New Resource\" window.")
+	public void PV_Patrollings_71() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_cancel)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Cancel\" button of \"New Resource\" window.");
+		Thread.sleep(1000);
+		Assert.assertEquals(driver.findElements(By.xpath(Patrollings_repository.title_window)).size()!=0, false);
+		
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should able to click on \"Cancel\" button of \"New Resource\" window and window should close."));
+	}
+	
+	@Test(priority=71,description="To verify that user gets validation messages when click on \"Save\" button without entering mandatory details of \"New Resource\" window.")
+	public void PV_Patrollings_72() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_save)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Click on \"Save\" button of \"New Resource\" window without entering mandatory details.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.val_resname)).getText(), "The Resource Name field is required.");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should gets validation messages like : \r\n"
+				+ "\"The Resource Name field is required.\""));
+	}
+	
+	@Test(priority=72,description="To verify that user gets validation message when  add new Resource with the same as which is already exist.")
+	public void PV_Patrollings_73(Method method) throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_resname)).sendKeys("Test Resource");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Enter \"Resource Name\" into respective text-box.");
+		Select select = new Select(driver.findElement(By.xpath(Patrollings_repository.dd_restype)));
+		select.selectByVisibleText("Gun");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Select \"Resource Type\" from respective dropdown.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).sendKeys("2");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Enter \"Total Count\" into respective text-box.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_save)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11</b> : Click on \"Save\" button  of \"New Resource\" window.");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should get validation message like \"Resource type already exist with this Name\"."));
+		ll.Screenshotnew(driver,i,method.getName()+"_01");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.validation_1stline)).getText(), "Resource already exist with this Name");
+		driver.findElement(By.xpath(Patrollings_repository.btn_OK)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-12</b> : Click on \"OK\" button of validation message popup.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.validation_1stline)).isDisplayed(), false);
+		Assert.assertEquals(driver.findElements(By.xpath(Patrollings_repository.title_window)).size()!=0, true);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : </br>1. Validation message popup should close.</br>"
+				+ "2. \"New Resource Type\" window should display with entered details."));
 		
 	}
 	
+	@Test(priority=73,description="To verify that user gets validation message when \"Total Count\" value of resource is greater than 50 and less than 1.")
+	public void PV_Patrollings_74() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_resname)).sendKeys("Test Resource");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Enter \"Resource Name\" into respective text-box.");
+		Select select = new Select(driver.findElement(By.xpath(Patrollings_repository.dd_restype)));
+		select.selectByVisibleText("Gun");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Select \"Resource Type\" from respective dropdown.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).clear();
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).sendKeys("0");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Enter \"Total Count\" into respective text-box.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_save)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11</b> : Click on \"Save\" button  of \"New Resource\" window.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.val_totcount)).getText(), "The field Total Count must be between 1 and 50.");
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : User should get validation message like \"The field Total Count must be between 1 and 50.\" below respective field."));
+	}
 	
+	@Test(priority=74,description="To verify that user is able to validation message when perform \"Cancel\" functionality of \"New Resource\" window after adding details in respective fields of \"New Resource\" window.")
+	public void PV_Patrollings_75() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_resname)).sendKeys("Test Resource");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Enter \"Resource Name\" into respective text-box.");
+		Select select = new Select(driver.findElement(By.xpath(Patrollings_repository.dd_restype)));
+		select.selectByVisibleText("Gun");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Select \"Resource Type\" from respective dropdown.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).clear();
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).sendKeys("2");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Enter \"Total Count\" into respective text-box.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_cancel)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11</b> : Click on \"Cancel\" button  of \"New Resource\" window.");
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_yes)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-12</b> : Click on \"Yes\" button of validation message popup.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.validation_1stline)).isDisplayed(), false);
+		Assert.assertEquals(driver.findElements(By.xpath(Patrollings_repository.title_window)).size()!=0, false);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : </br>1. User should able to click on \"Yes\" button of validation message popup and validation message popup should close.</br>"
+				+ "2. \"New Resource\" window should also close."));
+	}
+	
+	@Test(priority=75,description="To verify that user is able to \"Cancel\" validation message popup of unsaved changes of \"New Resource\" window.")
+	public void PV_Patrollings_76() throws InterruptedException
+	{
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.btn_newresource)).click();
+		Thread.sleep(2000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7</b> : Click on \"New Resource\" button.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_resname)).sendKeys("Test Resource");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8</b> : Enter \"Resource Name\" into respective text-box.");
+		Select select = new Select(driver.findElement(By.xpath(Patrollings_repository.dd_restype)));
+		select.selectByVisibleText("Gun");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9</b> : Select \"Resource Type\" from respective dropdown.");
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).clear();
+		driver.findElement(By.xpath(Patrollings_repository.txtbox_totcount)).sendKeys("2");
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10</b> : Enter \"Total Count\" into respective text-box.");
+		driver.findElement(By.xpath(Patrollings_repository.btn_cancel)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11</b> : Click on \"Cancel\" button  of \"New Resource\" window.");
+		Assert.assertEquals("Are you sure?", driver.findElement(By.xpath(UserManagement_repository.validation_1stline)).getText());
+		Assert.assertEquals("You have unsaved changes.", driver.findElement(By.xpath(UserManagement_repository.validation_2ndline)).getText());
+        Thread.sleep(1000);	
+		driver.findElement(By.xpath(UserManagement_repository.validation_btn_cancel)).click();
+		Thread.sleep(1000);
+		ExtentTestManager.getTest().log(Status.INFO, "<b>Step-12</b> : Click on \"Cancel\" button of validation message popup.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.validation_1stline)).isDisplayed(), false);
+		Assert.assertEquals(driver.findElements(By.xpath(Patrollings_repository.title_window)).size()!=0, true);
+		ExtentTestManager.getTest().log(Status.INFO, String.format("<b>Result</b> : </br>1. User should able to click on \"Cancel\" button of validation message popup and validation message popup should close.</br>"
+				+ "2. \"New Resource\" window should display on screen."));
+	}
+	
+	
+	
+	@Test
+	public void PV_Patrollings_77() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		/*
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-1</b> : Open Browser.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-2</b> : Enter the URL of Police Vertical web portal in address-bar of browser and press Enter key.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-3</b> : Click on  \"Login\" link or button from \"Home\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-4</b> : Enter valid credential of \"Admin\" role in \"Login\" page.");
+		ExtentTestManager.getTest().log(Status.INFO,"<b>Step-5</b> : Click on \"Login\" button.");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		*/
+		driver.findElement(By.xpath(Patrollings_repository.menu_patrolling)).click();
+		driver.findElement(By.xpath(Patrollings_repository.menu_item_resources)).click();
+		//ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6</b> : Click on \"Patrollings\"-> \"Resources\" menu from left pane.");
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_header)).getText(), "Resources");
+		driver.findElement(By.xpath(Patrollings_repository.searchbox)).sendKeys("Test Resource");
+		
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(Patrollings_repository.btn_actions_first)).click();
+		
+		driver.findElement(By.xpath(Patrollings_repository.lnk_edit_first)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Patrollings_repository.title_window)));
+		Assert.assertEquals(driver.findElement(By.xpath(Patrollings_repository.title_window)).getText(), "Edit Resource");
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+	
+		
+	}
 	
 	@AfterMethod
 	public void Aftermethod() throws InterruptedException

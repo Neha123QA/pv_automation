@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pv_admin.PV_CrimeMapping">
+      <class name="pv_admin.PV_Patrollings">
         <methods>
-          <include name="PV_CrimeMapping_135"/>
           <include name="Aftermethod"/>
-          <include name="Openurl"/>
+          <include name="PV_Patrollings_77"/>
           <include name="setDriver"/>
+          <include name="Openurl"/>
         </methods>
-      </class> <!-- pv_admin.PV_CrimeMapping -->
+      </class> <!-- pv_admin.PV_Patrollings -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -8,8 +8,8 @@
     <classes>
       <class name="pv_admin.PV_Patrollings">
         <methods>
-          <include name="PV_Patrollings_63" invocation-numbers="0"/>
           <include name="Aftermethod"/>
+          <include name="PV_Patrollings_77"/>
           <include name="setDriver"/>
           <include name="Openurl"/>
         </methods>

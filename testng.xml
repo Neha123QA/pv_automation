@@ -378,7 +378,7 @@
       <class name="pv_admin.PV_Patrollings">
       <methods>       
       
-			<include name= "PV_Patrollings_64()"/>
+			<include name= "PV_Patrollings_77()"/>
 			 </methods>
       </class>
    	</classes>
